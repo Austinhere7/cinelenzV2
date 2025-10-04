@@ -36,7 +36,7 @@ Powered by NLP and sentiment analysis, CineLenz groups posts into threads, ident
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/<your-username>/cinelenz.git
+git clone https://github.com/LyfSeeker/cinelenz.git
 cd cinelenz
 ```
 
