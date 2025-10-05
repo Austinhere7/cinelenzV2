@@ -17,26 +17,45 @@ type AnalyzeResponse = {
   summary: string
   threads: number
   sample_topics: string[]
+  movie_data?: any
+}
+
+type Movie = {
+  id: number
+  title: string
+  overview?: string
+  poster_path?: string
+  backdrop_path?: string
+  release_date?: string
+  vote_average?: number
+  vote_count?: number
+  popularity?: number
+  genre_ids?: number[]
+  adult?: boolean
+  original_language?: string
+  original_title?: string
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 export default function GetStartedPage() {
-  const [phase, setPhase] = useState<"welcome" | "form" | "results">("form")
+  const [phase, setPhase] = useState<"welcome" | "form" | "results" | "search">("form")
   const [movie, setMovie] = useState("")
   const [range, setRange] = useState<Range>("24h")
   const [language, setLanguage] = useState<string>("en")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [result, setResult] = useState<AnalyzeResponse | null>(null)
+  const [searchResults, setSearchResults] = useState<Movie[]>([])
+  const [searchLoading, setSearchLoading] = useState(false)
 
   const {
     data: trending,
     isLoading: trendingLoading,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     error: trendingError,
-  } = useSWR<{ movies: string[] }>(`${API_URL}/trending?lang=${language}`, fetcher)
+  } = useSWR<{ movies: Movie[] }>(`${API_URL}/trending?lang=${language}`, fetcher)
 
   function trendScoreFor(title: string) {
     let h = 0
@@ -45,29 +64,76 @@ export default function GetStartedPage() {
     return Math.min(100, Math.max(0, score))
   }
 
+  function generateUniqueKey(movie: Movie, index: number): string {
+    // Use movie ID if available, otherwise use a combination of title and index
+    if (movie.id) {
+      return `movie-${movie.id}`
+    }
+    return `movie-${movie.title?.replace(/\s+/g, '-').toLowerCase() || 'unknown'}-${index}`
+  }
+
   const trendingItems =
-    trending?.movies?.map((t) => ({
-      id: t,
-      title: t,
-      score: trendScoreFor(t),
-      image: `/placeholder.svg?height=56&width=40&query=${encodeURIComponent(`${t} movie poster minimal`)}`,
+    trending?.movies?.map((movie, index) => ({
+      id: generateUniqueKey(movie, index), // Generate unique key
+      title: movie.title || `Movie ${index + 1}`,
+      score: trendScoreFor(movie.title || `Movie ${index + 1}`),
+      image: movie.poster_path || `/placeholder.svg?height=56&width=40&query=${encodeURIComponent(`${movie.title || `Movie ${index + 1}`} movie poster minimal`)}`,
     })) ?? []
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSearch(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
-    if (!movie.trim()) {
+    
+    const searchQuery = movie.trim()
+    if (!searchQuery) {
       setError("Please enter a movie name.")
       return
     }
 
+    // Reset any previous results and set loading state
+    setSearchResults([])
+    setResult(null)
+    setPhase("search")
+    setSearchLoading(true)
+    
+    try {
+      console.log(`Searching for: "${searchQuery}"`)
+      const res = await fetch(`${API_URL}/search?query=${encodeURIComponent(searchQuery)}&lang=${language}`)
+      
+      if (!res.ok) {
+        throw new Error(`Request failed: ${res.status}`)
+      }
+      
+      const data: { movies: Movie[] } = await res.json()
+      console.log(`Search results:`, data)
+      
+      if (data.movies && data.movies.length > 0) {
+        setSearchResults(data.movies)
+        setPhase("search")
+        console.log(`Found ${data.movies.length} movies`)
+      } else {
+        setError("No movies found. Please try a different search term.")
+        setPhase("form")
+        console.log("No movies found")
+      }
+    } catch (err: any) {
+      console.error("Search error:", err)
+      setError(err?.message || "Something went wrong. Please try again.")
+      setPhase("form")
+    } finally {
+      setSearchLoading(false)
+    }
+  }
+
+  async function onAnalyze(selectedMovie: Movie) {
+    setError(null)
     setLoading(true)
     try {
       const res = await fetch(`${API_URL}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          movie: movie.trim(),
+          movie: selectedMovie.title,
           time_range: range,
           language,
         }),
@@ -98,47 +164,34 @@ export default function GetStartedPage() {
           </h2>
           <p className="mt-2 text-sm md:text-base opacity-80">Enter a movie name and explore the conversation.</p>
 
-          {/* Language selector */}
-          <div className="mt-5 space-y-4">
-            <div className="grid gap-2">
-              <Label htmlFor="language">Language</Label>
-              <select
-                id="language"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                aria-label="Select language"
-              >
-                <option value="en">English</option>
-                <option value="hi">Hindi</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="es">Spanish</option>
-              </select>
-            </div>
-          </div>
 
           {/* Search form */}
-          <form onSubmit={onSubmit} className="mt-6 space-y-6">
+          <form onSubmit={onSearch} className="mt-6 space-y-6">
             <div className="grid gap-2">
               <Label htmlFor="movie">Movie name</Label>
-              <div className="flex items-center gap-2">
-                <Input
-                  id="movie"
-                  placeholder="Enter a movie name"
-                  value={movie}
-                  onChange={(e) => setMovie(e.target.value)}
-                  required
-                />
-                <Button
-                  type="submit"
-                  className="bg-primary hover:bg-primary/90 transition-transform duration-150 active:scale-[0.98]"
-                  disabled={loading}
-                  aria-label="Search"
-                >
-                  {loading ? "Searching..." : "Search"}
-                </Button>
-              </div>
+                  <div className="flex items-center gap-2">
+                    <Input
+                      id="movie"
+                      placeholder="Enter a movie name"
+                      value={movie}
+                      onChange={(e) => setMovie(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault()
+                          onSearch(e)
+                        }
+                      }}
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      className="bg-primary hover:bg-primary/90 transition-transform duration-150 active:scale-[0.98]"
+                      disabled={searchLoading}
+                      aria-label="Search"
+                    >
+                      {searchLoading ? "Searching..." : "Search"}
+                    </Button>
+                  </div>
               {error && <p className="text-sm text-destructive">{error}</p>}
             </div>
 
@@ -160,6 +213,85 @@ export default function GetStartedPage() {
               </RadioGroup>
             </fieldset>
           </form>
+
+          {/* Search Results */}
+          {phase === "search" && (
+            <section aria-labelledby="search-results-title" className="animate-in fade-in-50 duration-300 mt-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle id="search-results-title" className="text-lg md:text-xl">
+                    Search Results for "{movie}"
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {searchLoading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <div className="text-sm text-muted-foreground">Searching for movies...</div>
+                    </div>
+                  ) : searchResults.length > 0 ? (
+                    <div className="grid gap-3">
+                      {searchResults.slice(0, 10).map((movieResult) => (
+                        <div
+                          key={movieResult.id}
+                          className="flex items-center gap-4 p-3 rounded-lg border hover:bg-accent transition-colors cursor-pointer"
+                          onClick={() => onAnalyze(movieResult)}
+                        >
+                          <img
+                            src={movieResult.poster_path || "/placeholder.svg"}
+                            alt={`${movieResult.title} poster`}
+                            width={60}
+                            height={90}
+                            className="h-20 w-14 rounded object-cover"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-medium text-sm truncate">{movieResult.title}</h3>
+                            <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                              {movieResult.overview || "No overview available"}
+                            </p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="text-xs text-muted-foreground">
+                                {movieResult.release_date ? new Date(movieResult.release_date).getFullYear() : "N/A"}
+                              </span>
+                              {movieResult.vote_average && (
+                                <span className="text-xs text-muted-foreground">
+                                  ⭐ {movieResult.vote_average.toFixed(1)}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <Button size="sm" variant="outline">
+                            Analyze
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-8">
+                      <p className="text-sm text-muted-foreground mb-4">No movies found for "{movie}"</p>
+                      <p className="text-xs text-muted-foreground">Try searching with a different movie name or check your spelling.</p>
+                    </div>
+                  )}
+
+                  <div className="flex gap-3 pt-2">
+                    <Button onClick={() => setPhase("form")} variant="outline" aria-label="New search">
+                      New search
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        setMovie("")
+                        setSearchResults([])
+                        setResult(null)
+                        setPhase("form")
+                      }}
+                      className="bg-primary hover:bg-primary/90"
+                    >
+                      Clear
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+          )}
 
           {/* Results block unchanged */}
           {phase === "results" && (
