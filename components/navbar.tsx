@@ -9,16 +9,16 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[9999] bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-40 md:h-48">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" aria-label="CineLenz home" className="inline-flex items-center group">
               <img 
                 src="/cinelenzlogo.png" 
                 alt="CineLenz Logo" 
-                className="h-12 w-12 md:h-16 md:w-16 mr-4 object-contain"
+                className="h-32 w-32 md:h-40 md:w-40 mr-6 object-contain"
               />
-              <span className="text-2xl md:text-3xl font-black font-sans tracking-tight leading-none text-foreground transition-colors duration-200 group-hover:text-foreground">
+              <span className="text-4xl md:text-5xl font-black font-sans tracking-tight leading-none text-foreground transition-colors duration-200 group-hover:text-foreground">
                 Cine<span className="text-primary">Lenz</span>
               </span>
             </a>
