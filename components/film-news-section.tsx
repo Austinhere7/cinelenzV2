@@ -1,11 +1,10 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Search, Calendar, ExternalLink, ChevronLeft, ChevronRight, Newspaper } from "lucide-react"
+import { Calendar, ExternalLink, ChevronLeft, ChevronRight, Newspaper } from "lucide-react"
 
 interface NewsArticle {
   title: string
@@ -25,25 +24,11 @@ interface NewsResponse {
 
 export function FilmNewsSection() {
   const [articles, setArticles] = useState<NewsArticle[]>([])
-  const [searchResults, setSearchResults] = useState<NewsArticle[]>([])
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [activeTab, setActiveTab] = useState<"latest" | "search">("latest")
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     fetchLatestNews()
   }, [])
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (searchTimeout) {
-        clearTimeout(searchTimeout)
-      }
-    }
-  }, [searchTimeout])
 
   const fetchLatestNews = async () => {
     try {
@@ -59,55 +44,9 @@ export function FilmNewsSection() {
     }
   }
 
-  const searchNews = useCallback(async (query: string) => {
-    if (!query.trim()) return
-    
-    setIsLoading(true)
-    try {
-      const response = await fetch(`http://localhost:8000/news/search?query=${encodeURIComponent(query)}&lang=en&page_size=20`)
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const data: NewsResponse = await response.json()
-      setSearchResults(data.articles || [])
-      setActiveTab("search")
-      
-      if (!data.articles || data.articles.length === 0) {
-        console.log(`No news found for query: ${query}`)
-      }
-    } catch (error) {
-      console.error("Error searching news:", error)
-      setSearchResults([])
-      setActiveTab("search")
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
-
-  // Debounced search function
-  const debouncedSearch = useCallback((query: string) => {
-    if (searchTimeout) {
-      clearTimeout(searchTimeout)
-    }
-    
-    const timeout = setTimeout(() => {
-      if (query.trim()) {
-        searchNews(query)
-      }
-    }, 500) // 500ms delay
-    
-    setSearchTimeout(timeout)
-  }, [searchNews, searchTimeout])
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    searchNews(searchQuery)
-  }
 
   const getCurrentArticles = () => {
-    return activeTab === "latest" ? articles : searchResults
+    return articles
   }
 
   const formatDate = (dateString: string) => {
@@ -148,59 +87,6 @@ export function FilmNewsSection() {
           </p>
         </div>
 
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <form onSubmit={handleSearch} className="flex gap-2">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <Input
-                type="text"
-                placeholder="Search film news..."
-                value={searchQuery}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value)
-                  debouncedSearch(e.target.value)
-                }}
-                className="pl-10 bg-gray-900 border-gray-700 text-white placeholder-gray-400 focus:border-red-500"
-              />
-            </div>
-            <Button 
-              type="submit" 
-              disabled={isLoading}
-              className="bg-red-600 hover:bg-red-700 text-white px-6"
-            >
-              {isLoading ? "Searching..." : "Search"}
-            </Button>
-          </form>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-8">
-          <div className="flex bg-gray-900 rounded-lg p-1">
-            <button
-              onClick={() => setActiveTab("latest")}
-              className={`px-6 py-2 rounded-md transition-colors ${
-                activeTab === "latest"
-                  ? "bg-red-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              }`}
-            >
-              <Newspaper className="w-4 h-4 inline mr-2" />
-              Latest News
-            </button>
-            <button
-              onClick={() => setActiveTab("search")}
-              className={`px-6 py-2 rounded-md transition-colors ${
-                activeTab === "search"
-                  ? "bg-red-600 text-white"
-                  : "text-gray-400 hover:text-white"
-              }`}
-            >
-              <Search className="w-4 h-4 inline mr-2" />
-              Search Results
-            </button>
-          </div>
-        </div>
 
         {/* News Slider */}
         {getCurrentArticles().length > 0 ? (
@@ -294,16 +180,8 @@ export function FilmNewsSection() {
             <div className="max-w-md mx-auto">
               <Newspaper className="w-16 h-16 text-gray-600 mx-auto mb-4" />
               <p className="text-gray-400 text-lg mb-2">
-                {activeTab === "search" 
-                  ? "No news found for your search"
-                  : "Loading news..."
-                }
+                Loading news...
               </p>
-              {activeTab === "search" && (
-                <p className="text-gray-500 text-sm">
-                  Try searching for "Marvel", "Disney", "Oscar", or "Box Office"
-                </p>
-              )}
             </div>
           </div>
         )}

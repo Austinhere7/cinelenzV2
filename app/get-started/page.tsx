@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { FilmNewsSection } from "@/components/film-news-section"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Range = "24h" | "week" | "month"
 
@@ -153,25 +154,18 @@ export default function GetStartedPage() {
 
   return (
     <main className="relative mx-auto max-w-6xl px-6 py-12 md:py-16">
-      {/* Film News Section - At the top */}
-      <div className="mb-16">
-        <FilmNewsSection />
-      </div>
-      
-      <div className="grid gap-8 md:grid-cols-3">
-        <section aria-labelledby="analysis-form-title" className="md:col-span-2">
-          <h2
-            id="analysis-form-title"
-            className="text-pretty text-3xl md:text-4xl font-semibold tracking-tight leading-tight"
-            style={{ fontFamily: "var(--font-sora)" }}
-          >
-            Analyze movie discussions
-          </h2>
-          <p className="mt-2 text-sm md:text-base opacity-80">Enter a movie name and explore the conversation.</p>
+      {/* Movie Search Section - At the top */}
+      <section className="mb-16">
+        <h2
+          className="text-pretty text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-center mb-4"
+          style={{ fontFamily: "var(--font-sora)" }}
+        >
+          Analyze Movie Discussions
+        </h2>
+        <p className="text-center text-sm md:text-base opacity-80 mb-8">Enter a movie name and explore the conversation.</p>
 
-
-          {/* Search form */}
-          <form onSubmit={onSearch} className="mt-6 space-y-6">
+        {/* Search form */}
+        <form onSubmit={onSearch} className="max-w-2xl mx-auto space-y-6">
             <div className="grid gap-2">
               <Label htmlFor="movie">Movie name</Label>
                   <div className="flex items-center gap-2">
@@ -217,7 +211,16 @@ export default function GetStartedPage() {
                 </div>
               </RadioGroup>
             </fieldset>
-          </form>
+        </form>
+      </section>
+
+      {/* Film News Section - Below movie search */}
+      <div className="mb-16">
+        <FilmNewsSection />
+      </div>
+      
+      <div className="grid gap-8 md:grid-cols-3">
+        <section aria-labelledby="analysis-form-title" className="md:col-span-2">
 
           {/* Search Results */}
           {phase === "search" && (
