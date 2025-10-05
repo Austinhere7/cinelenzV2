@@ -12,6 +12,9 @@ TMDB_BASE_URL = "https://api.themoviedb.org/3"
 NEWS_API_KEY = os.getenv("NEWS_API_KEY", "f6c16abcf22443789ac0f4bd8f85ae35")
 NEWS_API_BASE_URL = "https://newsapi.org/v2"
 
+# OpenAI Configuration
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "AIzaSyDBF1xdM64pDqtq-79aKX3VX37RdPjXhPk")
+
 # API Headers (TMDB uses api_key as query parameter, not Bearer token)
 TMDB_HEADERS = {
     "accept": "application/json"

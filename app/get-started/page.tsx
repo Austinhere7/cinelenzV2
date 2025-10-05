@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { FilmNewsSection } from "@/components/film-news-section"
+import { SocialAnalysis } from "@/components/social-analysis"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Range = "24h" | "week" | "month"
@@ -105,7 +106,7 @@ export default function GetStartedPage() {
         throw new Error(`Request failed: ${res.status}`)
       }
       
-      const data: { movies: Movie[] } = await res.json()
+      const data: MovieResponse = await res.json()
       console.log(`Search results:`, data)
       
       if (data.movies && data.movies.length > 0) {
@@ -405,10 +406,14 @@ export default function GetStartedPage() {
         </div>
       </section>
 
-
       {/* Film News Section - Below search results */}
       <div className="mb-16">
         <FilmNewsSection />
+      </div>
+
+      {/* Social Media Analysis Section */}
+      <div className="mb-16">
+        <SocialAnalysis />
       </div>
     </main>
   )

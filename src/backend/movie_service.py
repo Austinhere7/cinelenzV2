@@ -35,6 +35,8 @@ class MovieService:
                 return results
         except Exception as e:
             print(f"Error fetching trending movies: {e}")
+            import traceback
+            traceback.print_exc()
             # Return empty list instead of None to prevent frontend errors
             return []
     

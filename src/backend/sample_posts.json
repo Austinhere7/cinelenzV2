@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "content": "Just watched Dune 2 and it's absolutely mind-blowing! The visuals are incredible 🔥 The story is so deep and complex",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T10:30:00Z",
+      "author": "@movielover123",
+      "movie_mentioned": "Dune 2"
+    },
+    {
+      "id": "2", 
+      "content": "Dune 2 was okay but too long. Could have been 30 minutes shorter. The pacing was off",
+      "platform": "reddit",
+      "timestamp": "2024-01-15T11:45:00Z",
+      "author": "u/cinemacritic",
+      "movie_mentioned": "Dune 2"
+    },
+    {
+      "id": "3",
+      "content": "Barbie movie was surprisingly deep and thought-provoking. Margot Robbie killed it! Perfect blend of comedy and social commentary",
+      "platform": "instagram",
+      "timestamp": "2024-01-15T14:20:00Z", 
+      "author": "@barbiefan",
+      "movie_mentioned": "Barbie"
+    },
+    {
+      "id": "4",
+      "content": "Oppenheimer is a masterpiece! Cillian Murphy deserves all the awards. Christopher Nolan at his finest",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T16:10:00Z",
+      "author": "@filmcritic_pro",
+      "movie_mentioned": "Oppenheimer"
+    },
+    {
+      "id": "5",
+      "content": "Spider-Man: Across the Spider-Verse is pure art! The animation is revolutionary. Can't wait for the next one",
+      "platform": "reddit",
+      "timestamp": "2024-01-15T18:30:00Z",
+      "author": "u/spideyfan",
+      "movie_mentioned": "Spider-Man: Across the Spider-Verse"
+    },
+    {
+      "id": "6",
+      "content": "The Batman with Robert Pattinson was too dark and slow. Not my cup of tea",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T20:15:00Z",
+      "author": "@moviereviewer",
+      "movie_mentioned": "The Batman"
+    },
+    {
+      "id": "7",
+      "content": "Top Gun: Maverick exceeded all expectations! Tom Cruise still has it. The aerial sequences are breathtaking",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T09:45:00Z",
+      "author": "@actionfan",
+      "movie_mentioned": "Top Gun: Maverick"
+    },
+    {
+      "id": "8",
+      "content": "Avatar: The Way of Water is visually stunning but the story is weak. James Cameron needs better writers",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T12:20:00Z",
+      "author": "u/avatarfan",
+      "movie_mentioned": "Avatar: The Way of Water"
+    },
+    {
+      "id": "9",
+      "content": "Everything Everywhere All at Once is pure genius! Michelle Yeoh is incredible. This movie changed my life",
+      "platform": "twitter",
+      "timestamp": "2024-01-16T15:30:00Z",
+      "author": "@indiefilm_lover",
+      "movie_mentioned": "Everything Everywhere All at Once"
+    },
+    {
+      "id": "10",
+      "content": "Black Panther: Wakanda Forever was emotional and powerful. Chadwick would be proud. The tribute was beautiful",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T18:00:00Z",
+      "author": "@mcu_fan",
+      "movie_mentioned": "Black Panther: Wakanda Forever"
+    },
+    {
+      "id": "11",
+      "content": "Dune 2's world-building is incredible. Denis Villeneuve is a master filmmaker. The sandworms look so real!",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T20:45:00Z",
+      "author": "u/scifi_enthusiast",
+      "movie_mentioned": "Dune 2"
+    },
+    {
+      "id": "12",
+      "content": "Barbie was overrated. The message was heavy-handed and the humor fell flat for me",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T10:15:00Z",
+      "author": "@honest_reviews",
+      "movie_mentioned": "Barbie"
+    }
+  ]
+}
