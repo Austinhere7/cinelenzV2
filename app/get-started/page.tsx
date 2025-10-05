@@ -153,6 +153,11 @@ export default function GetStartedPage() {
 
   return (
     <main className="relative mx-auto max-w-6xl px-6 py-12 md:py-16">
+      {/* Film News Section - At the top */}
+      <div className="mb-16">
+        <FilmNewsSection />
+      </div>
+      
       <div className="grid gap-8 md:grid-cols-3">
         <section aria-labelledby="analysis-form-title" className="md:col-span-2">
           <h2
@@ -400,11 +405,6 @@ export default function GetStartedPage() {
             </div>
           </div>
         </aside>
-      </div>
-      
-      {/* Film News Section */}
-      <div className="mt-16">
-        <FilmNewsSection />
       </div>
     </main>
   )
