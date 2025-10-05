@@ -13,6 +13,11 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" aria-label="CineLenz home" className="inline-flex items-center group">
+              <img 
+                src="/cinelenzlogo.png" 
+                alt="CineLenz Logo" 
+                className="h-8 w-8 mr-3 object-contain"
+              />
               <span className="text-2xl md:text-3xl font-black font-sans tracking-tight leading-none text-foreground transition-colors duration-200 group-hover:text-foreground">
                 Cine<span className="text-primary">Lenz</span>
               </span>
