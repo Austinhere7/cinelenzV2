@@ -181,6 +181,40 @@ class MovieService:
             print(f"Error fetching now playing movies: {e}")
             return []
     
+    async def get_movie_videos(self, movie_id: int, language: str = "en-US") -> List[Dict]:
+        """Get videos (trailers, teasers, clips) for a specific movie"""
+        # Check cache first
+        cache_key = self._get_cache_key("videos", movie_id=movie_id, language=language)
+        cached_result = self._get_from_cache(cache_key)
+        if cached_result is not None:
+            return cached_result
+        
+        try:
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                url = f"{self.base_url}/movie/{movie_id}/videos"
+                params = {
+                    "api_key": TMDB_API_KEY,
+                    "language": language
+                }
+                response = await client.get(url, headers=self.headers, params=params)
+                response.raise_for_status()
+                data = response.json()
+                results = data.get("results", [])
+                
+                # Filter for YouTube videos and trailers/teasers
+                filtered_videos = [
+                    video for video in results 
+                    if video.get("site") == "YouTube" and 
+                    video.get("type") in ["Trailer", "Teaser", "Clip"]
+                ]
+                
+                # Cache the result
+                self._set_cache(cache_key, filtered_videos)
+                return filtered_videos
+        except Exception as e:
+            print(f"Error fetching movie videos: {e}")
+            return []
+    
     def format_movie_for_response(self, movie: Dict) -> Dict:
         """Format movie data for API response"""
         return {

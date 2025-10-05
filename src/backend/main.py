@@ -68,7 +68,8 @@ async def get_trending_movies(time_range: Range = "week", lang: Lang = "en"):
     """Get trending movies"""
     try:
         movies = await movie_service.get_trending_movies(time_range, f"{lang}-US")
-        return TrendingResponse(movies=movies)
+        formatted_movies = [movie_service.format_movie_for_response(movie) for movie in movies]
+        return TrendingResponse(movies=formatted_movies)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching trending movies: {str(e)}")
 
@@ -77,8 +78,9 @@ async def search_movies(query: str, lang: Lang = "en", page: int = 1):
     """Search for movies by title"""
     try:
         movies = await movie_service.search_movies(query, f"{lang}-US")
+        formatted_movies = [movie_service.format_movie_for_response(movie) for movie in movies]
         return MovieSearchResponse(
-            movies=movies,
+            movies=formatted_movies,
             total_results=len(movies),
             page=page
         )
@@ -90,7 +92,8 @@ async def get_movie_details(movie_id: int, lang: Lang = "en"):
     """Get detailed information about a specific movie"""
     try:
         movie = await movie_service.get_movie_details(movie_id, f"{lang}-US")
-        return MovieDetailsResponse(movie=movie)
+        formatted_movie = movie_service.format_movie_for_response(movie)
+        return MovieDetailsResponse(movie=formatted_movie)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching movie details: {str(e)}")
 
@@ -99,7 +102,8 @@ async def get_upcoming_movies(lang: Lang = "en"):
     """Get upcoming movies"""
     try:
         movies = await movie_service.get_upcoming_movies(f"{lang}-US")
-        return TrendingResponse(movies=movies)
+        formatted_movies = [movie_service.format_movie_for_response(movie) for movie in movies]
+        return TrendingResponse(movies=formatted_movies)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching upcoming movies: {str(e)}")
 
@@ -108,9 +112,20 @@ async def get_now_playing_movies(lang: Lang = "en"):
     """Get now playing movies"""
     try:
         movies = await movie_service.get_now_playing_movies(f"{lang}-US")
-        return TrendingResponse(movies=movies)
+        formatted_movies = [movie_service.format_movie_for_response(movie) for movie in movies]
+        return TrendingResponse(movies=formatted_movies)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching now playing movies: {str(e)}")
+
+
+@app.get("/movie/{movie_id}/videos")
+async def get_movie_videos(movie_id: int, lang: Lang = "en"):
+    """Get videos (trailers, teasers, clips) for a specific movie"""
+    try:
+        videos = await movie_service.get_movie_videos(movie_id, f"{lang}-US")
+        return {"videos": videos}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching movie videos: {str(e)}")
 
 @app.post("/analyze", response_model=AnalyzeResponse)
 async def analyze_movie_discussions(request: AnalyzeRequest):

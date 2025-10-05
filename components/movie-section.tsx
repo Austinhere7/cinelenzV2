@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, Star, Calendar, TrendingUp, Play } from "lucide-react"
+import { MovieTrailers } from "@/components/movie-trailers"
 
 interface Movie {
   id: number
@@ -59,6 +60,10 @@ export function MovieSection() {
   const [isLoading, setIsLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<"trending" | "upcoming" | "search">("trending")
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null)
+  // Initialize with null to not show any trailers until a movie is selected
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
+  const [selectedMovieTitle, setSelectedMovieTitle] = useState<string>("")
+  
 
   useEffect(() => {
     fetchTrendingMovies()
@@ -247,11 +252,26 @@ export function MovieSection() {
           </div>
         </div>
 
+        {/* Trailers Section - Added between search and movie grid */}
+        <div className="mb-8 bg-gray-900/50 p-6 rounded-lg border border-gray-800">
+          <MovieTrailers movieId={selectedMovieId} title={selectedMovieTitle} />
+        </div>
+        
         {/* Movies Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {getCurrentMovies().map((movie) => (
-            <Card key={movie.id} className="bg-gray-900 border-gray-800 hover:border-red-500/50 transition-all duration-300 group">
-              <div className="relative overflow-hidden rounded-t-lg">
+            <Card 
+              key={movie.id} 
+              className={`bg-gray-900 border-gray-800 hover:border-red-500/50 transition-all duration-300 group ${
+                selectedMovieId === movie.id ? 'border-red-500' : ''
+              }`}
+              onClick={() => {
+                console.log("Selected movie:", movie.id, movie.title);
+                setSelectedMovieId(movie.id);
+                setSelectedMovieTitle(movie.title);
+              }}
+            >
+              <div className="relative overflow-hidden rounded-t-lg cursor-pointer">
                 {movie.poster_path ? (
                   <img
                     src={movie.poster_path}

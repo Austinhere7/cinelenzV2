@@ -10,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 import { FilmNewsSection } from "@/components/film-news-section"
 import { SocialAnalysis } from "@/components/social-analysis"
+import { MovieTrailers } from "@/components/movie-trailers"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Range = "24h" | "week" | "month"
@@ -47,6 +48,8 @@ export default function GetStartedPage() {
   const [range, setRange] = useState<Range>("24h")
   const [language, setLanguage] = useState<string>("en")
   const [loading, setLoading] = useState(false)
+  const [searchedMovieId, setSearchedMovieId] = useState<number | null>(null)
+  const [searchedMovieTitle, setSearchedMovieTitle] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [result, setResult] = useState<AnalyzeResponse | null>(null)
   const [searchResults, setSearchResults] = useState<Movie[]>([])
@@ -130,6 +133,10 @@ export default function GetStartedPage() {
   async function onAnalyze(selectedMovie: Movie) {
     setError(null)
     setLoading(true)
+    // Set the selected movie ID and title for trailers
+    setSearchedMovieId(selectedMovie.id)
+    setSearchedMovieTitle(selectedMovie.title)
+    
     try {
       const res = await fetch(`${API_URL}/analyze`, {
         method: "POST",
@@ -155,6 +162,11 @@ export default function GetStartedPage() {
 
   return (
     <main className="relative mx-auto max-w-6xl px-6 py-12 md:py-16">
+      {/* Movie Trailers Section - Only shows after movie selection */}
+      <section className="mb-16">
+        <MovieTrailers movieId={searchedMovieId} title={`${searchedMovieTitle} Trailers`} />
+      </section>
+
       {/* Movie Search Section - At the top */}
       <section className="mb-16">
         <h2
