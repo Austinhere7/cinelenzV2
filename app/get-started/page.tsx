@@ -164,8 +164,10 @@ export default function GetStartedPage() {
         </h2>
         <p className="text-center text-sm md:text-base opacity-80 mb-8">Enter a movie name and explore the conversation.</p>
 
-        {/* Search form */}
-        <form onSubmit={onSearch} className="max-w-2xl mx-auto space-y-6">
+        {/* Search form with trending sidebar */}
+        <div className="grid gap-8 md:grid-cols-3">
+          <div className="md:col-span-2">
+            <form onSubmit={onSearch} className="space-y-6">
             <div className="grid gap-2">
               <Label htmlFor="movie">Movie name</Label>
                   <div className="flex items-center gap-2">
@@ -211,18 +213,66 @@ export default function GetStartedPage() {
                 </div>
               </RadioGroup>
             </fieldset>
-        </form>
+            </form>
+          </div>
+
+          {/* Trending Now Sidebar */}
+          <aside className="md:col-span-1">
+            <div className="rounded-lg border border-border bg-card p-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-base font-semibold tracking-tight" style={{ fontFamily: "var(--font-sora)" }}>
+                  Trending now
+                </h3>
+              </div>
+
+              <div className="mt-4 space-y-3">
+                {trendingLoading && <div className="text-xs text-muted-foreground">Loading trending…</div>}
+                {!trendingLoading && trendingItems.length === 0 && (
+                  <div className="text-xs text-muted-foreground">No trending data.</div>
+                )}
+                {trendingItems.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setMovie(item.title)
+                      window?.scrollTo?.({ top: 0, behavior: "smooth" })
+                    }}
+                    className="flex w-full items-center gap-3 rounded-md border border-border bg-background p-2 text-left hover:bg-accent transition"
+                    aria-label={`Use trending movie ${item.title}`}
+                  >
+                    <img
+                      src={item.image || "/placeholder.svg"}
+                      alt={`${item.title} poster`}
+                      width={40}
+                      height={56}
+                      className="h-14 w-10 rounded object-cover"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm font-medium">{item.title}</div>
+                      <div className="mt-1 h-1.5 w-full rounded bg-muted">
+                        <div
+                          className="h-1.5 rounded bg-primary transition-[width] duration-500"
+                          style={{ width: `${item.score}%` }}
+                          aria-label={`Trending strength ${item.score}%`}
+                        />
+                      </div>
+                    </div>
+                    <div className="ml-1 shrink-0 text-xs tabular-nums text-muted-foreground">{item.score}%</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
 
-      {/* Film News Section - Below movie search */}
-      <div className="mb-16">
-        <FilmNewsSection />
-      </div>
-      
-      <div className="grid gap-8 md:grid-cols-3">
-        <section aria-labelledby="analysis-form-title" className="md:col-span-2">
-
-          {/* Search Results */}
+      {/* Search Results Section - Above news */}
+      {(phase === "search" || phase === "results") && (
+        <section className="mb-16">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="md:col-span-2">
+              {/* Search Results */}
           {phase === "search" && (
             <section aria-labelledby="search-results-title" className="animate-in fade-in-50 duration-300 mt-8">
               <Card>
@@ -359,55 +409,14 @@ export default function GetStartedPage() {
               </Card>
             </section>
           )}
-        </section>
-
-        <aside className="md:col-span-1">
-          <div className="rounded-lg border border-border bg-card p-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-semibold tracking-tight" style={{ fontFamily: "var(--font-sora)" }}>
-                Trending now
-              </h3>
-            </div>
-
-            <div className="mt-4 space-y-3">
-              {trendingLoading && <div className="text-xs text-muted-foreground">Loading trending…</div>}
-              {!trendingLoading && trendingItems.length === 0 && (
-                <div className="text-xs text-muted-foreground">No trending data.</div>
-              )}
-              {trendingItems.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => {
-                    setMovie(item.title)
-                    window?.scrollTo?.({ top: 0, behavior: "smooth" })
-                  }}
-                  className="flex w-full items-center gap-3 rounded-md border border-border bg-background p-2 text-left hover:bg-accent transition"
-                  aria-label={`Use trending movie ${item.title}`}
-                >
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={`${item.title} poster`}
-                    width={40}
-                    height={56}
-                    className="h-14 w-10 rounded object-cover"
-                  />
-                  <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-medium">{item.title}</div>
-                    <div className="mt-1 h-1.5 w-full rounded bg-muted">
-                      <div
-                        className="h-1.5 rounded bg-primary transition-[width] duration-500"
-                        style={{ width: `${item.score}%` }}
-                        aria-label={`Trending strength ${item.score}%`}
-                      />
-                    </div>
-                  </div>
-                  <div className="ml-1 shrink-0 text-xs tabular-nums text-muted-foreground">{item.score}%</div>
-                </button>
-              ))}
             </div>
           </div>
-        </aside>
+        </section>
+      )}
+
+      {/* Film News Section - Below search results */}
+      <div className="mb-16">
+        <FilmNewsSection />
       </div>
     </main>
   )
