@@ -214,6 +214,144 @@ export default function GetStartedPage() {
               </RadioGroup>
             </fieldset>
             </form>
+
+            {/* Search Results - Right below search bar */}
+            {phase === "search" && (
+              <div className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg md:text-xl">
+                      Search Results for "{movie}"
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {searchLoading ? (
+                      <div className="flex items-center justify-center py-8">
+                        <div className="text-sm text-muted-foreground">Searching for movies...</div>
+                      </div>
+                    ) : searchResults.length > 0 ? (
+                      <div className="grid gap-3">
+                        {searchResults.slice(0, 10).map((movieResult) => (
+                          <div
+                            key={movieResult.id}
+                            className="flex items-center gap-4 p-3 rounded-lg border hover:bg-accent transition-colors cursor-pointer"
+                            onClick={() => onAnalyze(movieResult)}
+                          >
+                            <img
+                              src={movieResult.poster_path || "/placeholder.svg"}
+                              alt={`${movieResult.title} poster`}
+                              width={60}
+                              height={90}
+                              className="h-20 w-14 rounded object-cover"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-medium text-sm truncate">{movieResult.title}</h3>
+                              <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                                {movieResult.overview || "No overview available"}
+                              </p>
+                              <div className="flex items-center gap-2 mt-2">
+                                <span className="text-xs text-muted-foreground">
+                                  {movieResult.release_date ? new Date(movieResult.release_date).getFullYear() : "N/A"}
+                                </span>
+                                {movieResult.vote_average && (
+                                  <span className="text-xs text-muted-foreground">
+                                    ⭐ {movieResult.vote_average.toFixed(1)}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <Button size="sm" variant="outline">
+                              Analyze
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center py-8">
+                        <p className="text-sm text-muted-foreground mb-4">No movies found for "{movie}"</p>
+                        <p className="text-xs text-muted-foreground">Try searching with a different movie name or check your spelling.</p>
+                      </div>
+                    )}
+
+                    <div className="flex gap-3 pt-2">
+                      <Button onClick={() => setPhase("form")} variant="outline" aria-label="New search">
+                        New search
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          setMovie("")
+                          setSearchResults([])
+                          setResult(null)
+                          setPhase("form")
+                        }}
+                        className="bg-primary hover:bg-primary/90"
+                      >
+                        Clear
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {/* Analysis Results - Right below search bar */}
+            {phase === "results" && (
+              <div className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg md:text-xl">
+                      Results for "{movie}"
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {result ? (
+                      <>
+                        <p className="text-sm opacity-90">{result.summary}</p>
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="rounded-md bg-primary/10 px-3 py-1 text-sm text-primary">
+                            Threads: {result.threads}
+                          </span>
+                          <span className="rounded-md bg-gray-500/10 px-3 py-1 text-sm opacity-80">Range: {range}</span>
+                        </div>
+                        {result.sample_topics?.length > 0 && (
+                          <div className="space-y-2">
+                            <h3 className="text-sm font-medium">Sample topics</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {result.sample_topics.map((t) => (
+                                <span
+                                  key={t}
+                                  className="rounded-full border px-3 py-1 text-xs opacity-90 hover:bg-white/5 transition"
+                                >
+                                  {t}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <p className="text-sm text-destructive">No results. Please try again.</p>
+                    )}
+
+                    <div className="flex gap-3 pt-2">
+                      <Button onClick={() => setPhase("form")} variant="outline" aria-label="New search">
+                        New search
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          setMovie("")
+                          setResult(null)
+                          setPhase("form")
+                        }}
+                        className="bg-primary hover:bg-primary/90"
+                      >
+                        Clear
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
           </div>
 
           {/* Trending Now Sidebar */}
@@ -267,152 +405,6 @@ export default function GetStartedPage() {
         </div>
       </section>
 
-      {/* Search Results Section - Above news */}
-      {(phase === "search" || phase === "results") && (
-        <section className="mb-16">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              {/* Search Results */}
-          {phase === "search" && (
-            <section aria-labelledby="search-results-title" className="animate-in fade-in-50 duration-300 mt-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle id="search-results-title" className="text-lg md:text-xl">
-                    Search Results for "{movie}"
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {searchLoading ? (
-                    <div className="flex items-center justify-center py-8">
-                      <div className="text-sm text-muted-foreground">Searching for movies...</div>
-                    </div>
-                  ) : searchResults.length > 0 ? (
-                    <div className="grid gap-3">
-                      {searchResults.slice(0, 10).map((movieResult) => (
-                        <div
-                          key={movieResult.id}
-                          className="flex items-center gap-4 p-3 rounded-lg border hover:bg-accent transition-colors cursor-pointer"
-                          onClick={() => onAnalyze(movieResult)}
-                        >
-                          <img
-                            src={movieResult.poster_path || "/placeholder.svg"}
-                            alt={`${movieResult.title} poster`}
-                            width={60}
-                            height={90}
-                            className="h-20 w-14 rounded object-cover"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-medium text-sm truncate">{movieResult.title}</h3>
-                            <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                              {movieResult.overview || "No overview available"}
-                            </p>
-                            <div className="flex items-center gap-2 mt-2">
-                              <span className="text-xs text-muted-foreground">
-                                {movieResult.release_date ? new Date(movieResult.release_date).getFullYear() : "N/A"}
-                              </span>
-                              {movieResult.vote_average && (
-                                <span className="text-xs text-muted-foreground">
-                                  ⭐ {movieResult.vote_average.toFixed(1)}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <Button size="sm" variant="outline">
-                            Analyze
-                          </Button>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="text-center py-8">
-                      <p className="text-sm text-muted-foreground mb-4">No movies found for "{movie}"</p>
-                      <p className="text-xs text-muted-foreground">Try searching with a different movie name or check your spelling.</p>
-                    </div>
-                  )}
-
-                  <div className="flex gap-3 pt-2">
-                    <Button onClick={() => setPhase("form")} variant="outline" aria-label="New search">
-                      New search
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        setMovie("")
-                        setSearchResults([])
-                        setResult(null)
-                        setPhase("form")
-                      }}
-                      className="bg-primary hover:bg-primary/90"
-                    >
-                      Clear
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-          )}
-
-          {/* Results block unchanged */}
-          {phase === "results" && (
-            <section aria-labelledby="results-title" className="animate-in fade-in-50 duration-300 mt-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle id="results-title" className="text-lg md:text-xl">
-                    Results for “{movie}”
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {result ? (
-                    <>
-                      <p className="text-sm opacity-90">{result.summary}</p>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="rounded-md bg-primary/10 px-3 py-1 text-sm text-primary">
-                          Threads: {result.threads}
-                        </span>
-                        <span className="rounded-md bg-gray-500/10 px-3 py-1 text-sm opacity-80">Range: {range}</span>
-                      </div>
-                      {result.sample_topics?.length > 0 && (
-                        <div className="space-y-2">
-                          <h3 className="text-sm font-medium">Sample topics</h3>
-                          <div className="flex flex-wrap gap-2">
-                            {result.sample_topics.map((t) => (
-                              <span
-                                key={t}
-                                className="rounded-full border px-3 py-1 text-xs opacity-90 hover:bg-white/5 transition"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <p className="text-sm text-destructive">No results. Please try again.</p>
-                  )}
-
-                  <div className="flex gap-3 pt-2">
-                    <Button onClick={() => setPhase("form")} variant="outline" aria-label="New search">
-                      New search
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        setMovie("")
-                        setResult(null)
-                        setPhase("form")
-                      }}
-                      className="bg-primary hover:bg-primary/90"
-                    >
-                      Clear
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-          )}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Film News Section - Below search results */}
       <div className="mb-16">
