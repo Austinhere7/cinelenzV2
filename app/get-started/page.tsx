@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { FilmNewsSection } from "@/components/film-news-section"
 
 type Range = "24h" | "week" | "month"
 
@@ -400,6 +400,11 @@ export default function GetStartedPage() {
             </div>
           </div>
         </aside>
+      </div>
+      
+      {/* Film News Section */}
+      <div className="mt-16">
+        <FilmNewsSection />
       </div>
     </main>
   )

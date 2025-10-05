@@ -9,7 +9,6 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { MovieSection } from "@/components/movie-section"
 import { MovieAnalysis } from "@/components/movie-analysis"
-import { FilmNewsSection } from "@/components/film-news-section"
 import Hero3D from "@/components/hero-3d" // Declare the Hero3D variable
 import AmbientBG from "@/components/ambient-bg" // add AmbientBG import for red blended background
 
@@ -24,7 +23,6 @@ export default function HomePage() {
       <FeaturesSection />
       <MovieSection />
       <MovieAnalysis />
-      <FilmNewsSection />
       <section id="how-it-works">
         <TechnologySection />
       </section>
