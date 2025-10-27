@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -40,7 +40,7 @@ const API_HEADERS = {
   "Content-Type": "application/json"
 }
 
-export default function GetStarted() {
+function GetStartedContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { toggleCompare, isComparing } = useWatchlist()
@@ -634,5 +634,17 @@ export default function GetStarted() {
       {/* Compare Drawer for movie comparison - Outside container for proper positioning */}
       <CompareDrawer />
     </React.Fragment>
+  )
+}
+
+export default function GetStarted() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <GetStartedContent />
+    </Suspense>
   )
 }
