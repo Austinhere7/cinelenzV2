@@ -11,6 +11,24 @@ export const metadata: Metadata = {
   title: "CineLenz — See cinema through the social lens",
   description: "Real-time social threads, sentiment, and trends for movies across X, Reddit, and YouTube.",
   generator: "v0.app",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "CineLenz",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 }
 
 const sora = Sora({
