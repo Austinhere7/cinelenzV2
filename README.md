@@ -9,8 +9,7 @@ Team Members:
 CineLenz analyzes social media conversations about movies in real-time, providing sentiment analysis, trending topics, and audience insights through an intuitive visual interface.
 
 ## Live Demo
-- URL / IP: http://202.88.252.51:3004
-- Endpoints: see `deployment/ENDPOINTS.md`
+- URL : https://cinelenz.vercel.app/
 
 By submitting this project, we consent to event organizers and judges accessing the listed local endpoints while connected to the event Wi-Fi for evaluation purposes. We understand that organizers will not access private customer data and will only use provided credentials.
 
