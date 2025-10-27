@@ -7,18 +7,18 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-40 md:h-48">
+    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" aria-label="CineLenz home" className="inline-flex items-center group">
               <img 
                 src="/cinelenzlogo.png" 
                 alt="CineLenz Logo" 
-                className="h-32 w-32 md:h-40 md:w-40 mr-6 object-contain"
+                className="h-16 w-16 md:h-20 md:w-20 mr-4 object-contain"
               />
-              <span className="text-4xl md:text-5xl font-black font-sans tracking-tight leading-none text-foreground transition-colors duration-200 group-hover:text-foreground">
+              <span className="text-3xl md:text-4xl font-black font-sans tracking-tight leading-none text-foreground transition-colors duration-200 group-hover:text-foreground">
                 Cine<span className="text-primary">Lenz</span>
               </span>
             </a>
@@ -40,10 +40,10 @@ export function Navbar() {
                 Features
               </a>
               <a
-                href="/#examples"
+                href="/get-started#films"
                 className="font-sans text-foreground hover:text-primary transition-colors duration-200"
               >
-                Examples
+                Films
               </a>
             </div>
           </div>
@@ -62,27 +62,27 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/98 border-t border-border">
+            <div className="px-2 pt-1 pb-2 space-y-0.5 bg-background/98 border-t border-border">
               <a
                 href="/#how-it-works"
-                className="block px-3 py-2 font-sans text-foreground hover:text-primary transition-colors duration-200"
+                className="block px-3 py-1.5 font-sans text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 How It Works
               </a>
               <a
                 href="/#features"
-                className="block px-3 py-2 font-sans text-foreground hover:text-primary transition-colors duration-200"
+                className="block px-3 py-1.5 font-sans text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Features
               </a>
               <a
-                href="/#examples"
-                className="block px-3 py-2 font-sans text-foreground hover:text-primary transition-colors duration-200"
+                href="/get-started#films"
+                className="block px-3 py-1.5 font-sans text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Examples
+                Films
               </a>
             </div>
           </div>

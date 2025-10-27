@@ -42,7 +42,14 @@ export function MovieTrailers({ movieId, title }: MovieTrailersProps) {
     setError(null)
     
     try {
-      const response = await fetch(`http://localhost:8000/movie/${id}/videos`)
+      // Using relative URL to work in all environments
+      const response = await fetch(`/api/movies/${id}/videos`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // Add a timeout to prevent hanging requests
+        signal: AbortSignal.timeout(8000)
+      })
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -53,19 +60,58 @@ export function MovieTrailers({ movieId, title }: MovieTrailersProps) {
       
       // Check if data is an array directly or if it's in a videos property
       const videoArray = Array.isArray(data) ? data : 
-                        (data.videos && Array.isArray(data.videos)) ? data.videos : [];
+                        (data.videos && Array.isArray(data.videos)) ? data.videos : 
+                        (data.results && Array.isArray(data.results)) ? data.results : [];
       
-      if (videoArray.length > 0) {
-        setVideos(videoArray)
-        setActiveVideo(videoArray[0].key)
-        console.log("Videos loaded:", videoArray.length)
+      // Filter for YouTube videos only to ensure compatibility
+      const youtubeVideos = videoArray.filter(video => 
+        video.site?.toLowerCase() === 'youtube' && video.key
+      );
+      
+      if (youtubeVideos.length > 0) {
+        setVideos(youtubeVideos)
+        setActiveVideo(youtubeVideos[0].key)
+        console.log("Videos loaded:", youtubeVideos.length)
       } else {
-        console.log("No videos found in response")
+        console.log("No YouTube videos found in response")
         setVideos([])
         setActiveVideo(null)
       }
     } catch (error) {
       console.error("Error fetching movie videos:", error)
+      
+      // Try fallback API endpoint if the first one fails
+      try {
+        // Use environment variable or fallback to a server-side API route
+        const tmdbApiEndpoint = process.env.NEXT_PUBLIC_TMDB_API_ENDPOINT || `/api/tmdb/movie/${id}/videos`;
+        const fallbackResponse = await fetch(tmdbApiEndpoint.replace('{id}', id.toString()), {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // Add a timeout to prevent hanging requests
+          signal: AbortSignal.timeout(5000)
+        })
+        
+        if (fallbackResponse.ok) {
+          const fallbackData = await fallbackResponse.json()
+          const fallbackVideos = fallbackData.results || []
+          
+          // Filter for YouTube videos
+          const youtubeVideos = fallbackVideos.filter(video => 
+            video.site?.toLowerCase() === 'youtube' && video.key
+          )
+          
+          if (youtubeVideos.length > 0) {
+            setVideos(youtubeVideos)
+            setActiveVideo(youtubeVideos[0].key)
+            setError(null)
+            return
+          }
+        }
+      } catch (fallbackError) {
+        console.error("Fallback API also failed:", fallbackError)
+      }
+      
       setError("Failed to load videos. Please try again.")
       setVideos([])
       setActiveVideo(null)

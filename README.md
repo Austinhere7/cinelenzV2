@@ -1,54 +1,63 @@
-# CineLenz 🎬
+# CineLenz — See Cinema Through the Social Lens
 
-See Cinema Through the Social Lens — Real time threads, sentiment, and trends for movies and events.
+Team Members:
+- Austin Chen (Full Stack Developer) - austin@example.com
+- Sarah Johnson (UI/UX Designer) - sarah@example.com
+- Michael Lee (Backend Developer) - michael@example.com
+- Emma Wilson (Data Scientist) - emma@example.com
 
----
+## Elevator Pitch
+CineLenz analyzes social media conversations about movies in real-time, providing sentiment analysis, trending topics, and audience insights through an intuitive visual interface.
 
-## 🚀 Overview
+## Live Demo
+- URL / IP: http://202.88.252.51:3004
+- Endpoints: see `deployment/ENDPOINTS.md`
 
-**CineLenz** is a hackathon ready project that detects and visualizes social media conversations related to movies or cinematic events.  
-Powered by NLP and sentiment analysis, CineLenz groups posts into threads, identifies trending topics, and shows how audience buzz evolves across platforms like X (Twitter) and Reddit.
+By submitting this project, we consent to event organizers and judges accessing the listed local endpoints while connected to the event Wi-Fi for evaluation purposes. We understand that organizers will not access private customer data and will only use provided credentials.
 
----
+## Quick Start (Local)
 
-## ✨ Features
-
-- **Thread Detection:** Groups related posts into conversation clusters using NLP and metadata.
-- **Sentiment and Emotion Analysis:** Detects audience tone (positive, negative, neutral) using multilingual models.
-- **Timeline Visualization:** Shows how movie buzz grows and fades over time.
-- **Trending Now:** Surfaces hot topics and movies discussed in the last 24h, week, or month.
-- **Search Any Movie:** Explore live or recent threads and sentiment for any movie or event.
-
----
-
-## 🧩 Tech Stack
-
-- **Frontend:** React.js, TailwindCSS, Chart.js
-- **Backend:** Flask or FastAPI (Python)
-- **NLP:** Sentence Transformers for thread clustering, Multilingual Sentiment Models from HuggingFace
-- **Data Collection:** snscrape for X/Twitter, PRAW for Reddit
-- **Visualization:** Chart.js, D3.js, Recharts
-
----
-
-## 🛠️ Getting Started
-
-### 1. Clone the Repo
-
+1. Clone repo
 ```bash
 git clone https://github.com/LyfSeeker/cinelenz.git
 cd cinelenz
 ```
 
-### 2. Install Frontend Dependencies
+2. Create .env from .env.example and set required variables.
 
+3. Install dependencies and start frontend:
 ```bash
 npm install
+npm run dev
 ```
 
-### 3. Start the Frontend
-
+4. Start the backend API server:
 ```bash
+cd src/backend
+pip install -r requirements.txt
+python -m uvicorn main:app --reload
+```
+
+5. Open http://localhost:3000
+
+## Tests
+```bash
+npm install
+npm test
+```
+
+## Environment Variables
+- `NEXT_PUBLIC_API_URL` — API server URL (default: http://localhost:8000)
+- `TMDB_API_KEY` — The Movie Database API key
+- `PORT` — Frontend port (default: 3000)
+
+## Known Limitations
+- Social media analysis uses simulated data due to API restrictions
+- Performance may degrade with high traffic
+- Movie trailers require a selected movie to display
+
+## License
+MIT
 npm run dev
 ```
 

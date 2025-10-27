@@ -10,6 +10,7 @@ class Post:
     timestamp: str
     author: str
     movie_mentioned: str
+    sentiment: str = None
 
 @dataclass
 class Thread:
@@ -26,7 +27,7 @@ class SocialAnalysisService:
     
     def load_posts(self, file_path: str) -> List[Post]:
         """Load posts from JSON file"""
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
         posts = []
@@ -43,27 +44,53 @@ class SocialAnalysisService:
                 movie_groups[movie] = []
             movie_groups[movie].append(post)
         return movie_groups
-    
-    def analyze_thread(self, posts: List[Post]) -> Thread:
-        """Analyze a thread of posts about a movie (mock analysis)"""
-        movie_title = posts[0].movie_mentioned
         
-        # Mock analysis based on content keywords
-        content = " ".join([post.content.lower() for post in posts])
+    def filter_posts_by_movie(self, posts: List[Post], movie_title: str) -> List[Post]:
+        """Filter posts by movie title (case insensitive partial match)"""
+        return [post for post in posts if movie_title.lower() in post.movie_mentioned.lower()]
+    
+    def analyze_post_sentiment(self, content: str) -> str:
+        """Analyze sentiment of an individual post"""
+        content = content.lower()
         
         # Simple sentiment analysis based on keywords
-        positive_words = ['amazing', 'incredible', 'awesome', 'love', 'great', 'excellent', 'perfect', 'masterpiece', 'genius', 'killed it', 'breathtaking', 'stunning', 'revolutionary', 'pure art', 'exceeded', 'incredible', 'beautiful', 'powerful', 'emotional']
-        negative_words = ['terrible', 'awful', 'bad', 'hate', 'disappointing', 'boring', 'slow', 'weak', 'overrated', 'heavy-handed', 'fell flat', 'too dark', 'too long', 'pacing was off']
+        positive_words = ['amazing', 'incredible', 'awesome', 'love', 'great', 'excellent', 'perfect', 'masterpiece', 'genius', 'killed it', 'breathtaking', 'stunning', 'revolutionary', 'pure art', 'exceeded', 'incredible', 'beautiful', 'powerful', 'emotional', 'brilliant', 'top-notch', 'loved', 'best', 'fantastic', 'wonderful', '10/10']
+        negative_words = ['terrible', 'awful', 'bad', 'hate', 'disappointing', 'boring', 'slow', 'weak', 'overrated', 'heavy-handed', 'fell flat', 'too dark', 'too long', 'pacing was off', 'waste', 'poor', 'mediocre', 'expected more', 'letdown', 'fails', 'worst']
         
         positive_count = sum(1 for word in positive_words if word in content)
         negative_count = sum(1 for word in negative_words if word in content)
         
         if positive_count > negative_count:
-            sentiment = "positive"
-            sentiment_score = 0.7 + (positive_count - negative_count) * 0.1
+            return "positive"
         elif negative_count > positive_count:
+            return "negative"
+        else:
+            return "neutral"
+    
+    def analyze_thread(self, posts: List[Post]) -> Thread:
+        """Analyze a thread of posts about a movie (mock analysis)"""
+        movie_title = posts[0].movie_mentioned
+        
+        # Use existing sentiment if available, otherwise analyze
+        for post in posts:
+            if not post.sentiment:
+                post.sentiment = self.analyze_post_sentiment(post.content)
+            # Ensure sentiment is one of the expected values
+            if post.sentiment not in ["positive", "negative", "neutral"]:
+                post.sentiment = "neutral"
+        
+        # Count sentiments for overall thread sentiment
+        sentiment_counts = {"positive": 0, "negative": 0, "neutral": 0}
+        for post in posts:
+            sentiment_counts[post.sentiment] += 1
+        
+        # Determine overall sentiment
+        if sentiment_counts["positive"] > sentiment_counts["negative"]:
+            sentiment = "positive"
+            sentiment_score = 0.7 + (sentiment_counts["positive"] - sentiment_counts["negative"]) / len(posts) * 0.3
+        elif sentiment_counts["negative"] > sentiment_counts["positive"]:
             sentiment = "negative"
-            sentiment_score = 0.3 - (negative_count - positive_count) * 0.1
+            sentiment_score = 0.3 - (sentiment_counts["negative"] - sentiment_counts["positive"]) / len(posts) * 0.3
         else:
             sentiment = "neutral"
             sentiment_score = 0.5

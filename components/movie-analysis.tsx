@@ -35,16 +35,38 @@ export function MovieAnalysis() {
 
     setIsAnalyzing(true)
     try {
-      const response = await fetch("http://localhost:8000/analyze", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+      const TMDB_HEADERS = {
+        accept: 'application/json',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_ACCESS_TOKEN || "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTFkZDNkNmY0YjQ4ZTNmNWE5Y2Q1YzBlNzU5NWJmNiIsInN1YiI6IjY1ZjQ3YzRmZWE4NGM3MDE3YzFkZGJkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7vS5I_fyS_qkmmBPZNZ_XWFwZ8EEwV5t7Avl0Yc_4Yw"}`
+      }
+      
+      // First search for the movie using TMDB API
+      const searchResponse = await fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`, {
+        headers: TMDB_HEADERS,
+        signal: AbortSignal.timeout(5000)
+      });
+      
+      if (!searchResponse.ok) {
+        throw new Error(`Movie search failed: ${searchResponse.status}`);
+      }
+      
+      const searchData = await searchResponse.json();
+      const movieId = searchData.results && searchData.results.length > 0 ? searchData.results[0].id : null;
+      
+      // Then analyze the movie
+      const response = await fetch(`${API_URL}/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           movie: query,
+          movie_id: movieId,
           time_range: timeRange,
           language: language,
         }),
+        signal: AbortSignal.timeout(8000)
       })
 
       const data: AnalysisResult = await response.json()

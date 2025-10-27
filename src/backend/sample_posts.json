@@ -2,99 +2,2361 @@
   "posts": [
     {
       "id": "1",
-      "content": "Just watched Dune 2 and it's absolutely mind-blowing! The visuals are incredible 🔥 The story is so deep and complex",
+      "content": "Titanic — Honestly, I expected more. The hype was too much for what we got.",
       "platform": "twitter",
-      "timestamp": "2024-01-15T10:30:00Z",
-      "author": "@movielover123",
-      "movie_mentioned": "Dune 2"
+      "timestamp": "2024-01-15T11:15:00Z",
+      "author": "@filmlover132",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
     },
     {
-      "id": "2", 
-      "content": "Dune 2 was okay but too long. Could have been 30 minutes shorter. The pacing was off",
-      "platform": "reddit",
-      "timestamp": "2024-01-15T11:45:00Z",
-      "author": "u/cinemacritic",
-      "movie_mentioned": "Dune 2"
+      "id": "2",
+      "content": "Titanic — The character development was top-notch.",
+      "platform": "instagram",
+      "timestamp": "2024-01-15T12:30:00Z",
+      "author": "@cinemafan911",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "3",
-      "content": "Barbie movie was surprisingly deep and thought-provoking. Margot Robbie killed it! Perfect blend of comedy and social commentary",
-      "platform": "instagram",
-      "timestamp": "2024-01-15T14:20:00Z", 
-      "author": "@barbiefan",
-      "movie_mentioned": "Barbie"
+      "content": "Titanic — Hands down one of the best cinematic experiences of the decade!",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T13:45:00Z",
+      "author": "@watcher361",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "4",
-      "content": "Oppenheimer is a masterpiece! Cillian Murphy deserves all the awards. Christopher Nolan at his finest",
-      "platform": "twitter",
-      "timestamp": "2024-01-15T16:10:00Z",
-      "author": "@filmcritic_pro",
-      "movie_mentioned": "Oppenheimer"
+      "content": "Titanic — Loved the soundtrack and emotional moments throughout the film.",
+      "platform": "instagram",
+      "timestamp": "2024-01-15T15:00:00Z",
+      "author": "@watcher15",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
     },
     {
       "id": "5",
-      "content": "Spider-Man: Across the Spider-Verse is pure art! The animation is revolutionary. Can't wait for the next one",
-      "platform": "reddit",
-      "timestamp": "2024-01-15T18:30:00Z",
-      "author": "u/spideyfan",
-      "movie_mentioned": "Spider-Man: Across the Spider-Verse"
+      "content": "Titanic — A perfect balance of action, emotion, and humor. Brilliant work!",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T16:15:00Z",
+      "author": "@enthusiast423",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "6",
-      "content": "The Batman with Robert Pattinson was too dark and slow. Not my cup of tea",
-      "platform": "twitter",
-      "timestamp": "2024-01-15T20:15:00Z",
-      "author": "@moviereviewer",
-      "movie_mentioned": "The Batman"
+      "content": "Titanic — Way better than expected. 10/10 from me.",
+      "platform": "instagram",
+      "timestamp": "2024-01-15T17:30:00Z",
+      "author": "@critic951",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "7",
-      "content": "Top Gun: Maverick exceeded all expectations! Tom Cruise still has it. The aerial sequences are breathtaking",
-      "platform": "instagram",
-      "timestamp": "2024-01-16T09:45:00Z",
-      "author": "@actionfan",
-      "movie_mentioned": "Top Gun: Maverick"
+      "content": "Titanic — Some pacing issues, but overall a strong movie.",
+      "platform": "reddit",
+      "timestamp": "2024-01-15T18:45:00Z",
+      "author": "u/enthusiast411",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
     },
     {
       "id": "8",
-      "content": "Avatar: The Way of Water is visually stunning but the story is weak. James Cameron needs better writers",
-      "platform": "reddit",
-      "timestamp": "2024-01-16T12:20:00Z",
-      "author": "u/avatarfan",
-      "movie_mentioned": "Avatar: The Way of Water"
+      "content": "Titanic — Absolutely stunning visuals and great performances!",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T20:00:00Z",
+      "author": "@watcher504",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
     },
     {
       "id": "9",
-      "content": "Everything Everywhere All at Once is pure genius! Michelle Yeoh is incredible. This movie changed my life",
+      "content": "Titanic — Honestly, I expected more. The hype was too much for what we got.",
       "platform": "twitter",
-      "timestamp": "2024-01-16T15:30:00Z",
-      "author": "@indiefilm_lover",
-      "movie_mentioned": "Everything Everywhere All at Once"
+      "timestamp": "2024-01-15T21:15:00Z",
+      "author": "@filmlover549",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
     },
     {
       "id": "10",
-      "content": "Black Panther: Wakanda Forever was emotional and powerful. Chadwick would be proud. The tribute was beautiful",
-      "platform": "instagram",
-      "timestamp": "2024-01-16T18:00:00Z",
-      "author": "@mcu_fan",
-      "movie_mentioned": "Black Panther: Wakanda Forever"
+      "content": "Titanic — Bit disappointing, but the acting saved it.",
+      "platform": "reddit",
+      "timestamp": "2024-01-15T22:30:00Z",
+      "author": "u/fanatic292",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "11",
-      "content": "Dune 2's world-building is incredible. Denis Villeneuve is a master filmmaker. The sandworms look so real!",
-      "platform": "reddit",
-      "timestamp": "2024-01-16T20:45:00Z",
-      "author": "u/scifi_enthusiast",
-      "movie_mentioned": "Dune 2"
+      "content": "Titanic — Didn't live up to the prequel, but still enjoyable.",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T23:45:00Z",
+      "author": "@watcher813",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
     },
     {
       "id": "12",
-      "content": "Barbie was overrated. The message was heavy-handed and the humor fell flat for me",
+      "content": "Titanic — Emotionally resonant and beautifully directed.",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T01:00:00Z",
+      "author": "u/filmlover171",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "13",
+      "content": "Titanic — Absolutely stunning visuals and great performances!",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T02:15:00Z",
+      "author": "@cinemafan807",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "14",
+      "content": "Titanic — The cast gave it their all. Loved every minute of it!",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T03:30:00Z",
+      "author": "u/enthusiast388",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "15",
+      "content": "Titanic — Loved the soundtrack and emotional moments throughout the film.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T04:45:00Z",
+      "author": "@movielover98",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "16",
+      "content": "Titanic — Felt a bit too long, but still a cinematic achievement.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T06:00:00Z",
+      "author": "@filmlover429",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "17",
+      "content": "Titanic — Some pacing issues, but overall a strong movie.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T07:15:00Z",
+      "author": "@enthusiast675",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "18",
+      "content": "Titanic — Cinematography alone makes it worth watching!",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T08:30:00Z",
+      "author": "@reviewer645",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "19",
+      "content": "Titanic — Incredible direction and storytelling — one of the best films this year.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T09:45:00Z",
+      "author": "@filmlover790",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "20",
+      "content": "Titanic — The character development was top-notch.",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T11:00:00Z",
+      "author": "u/geek54",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "21",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T12:15:00Z",
+      "author": "@critic303",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "22",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T13:30:00Z",
+      "author": "@fanatic185",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "23",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T14:45:00Z",
+      "author": "u/filmlover764",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "24",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T16:00:00Z",
+      "author": "@reviewer855",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "25",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
       "platform": "twitter",
-      "timestamp": "2024-01-17T10:15:00Z",
-      "author": "@honest_reviews",
-      "movie_mentioned": "Barbie"
+      "timestamp": "2024-01-16T17:15:00Z",
+      "author": "@enthusiast680",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "26",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "reddit",
+      "timestamp": "2024-01-16T18:30:00Z",
+      "author": "u/cinemafan921",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "27",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T19:45:00Z",
+      "author": "@watcher880",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "28",
+      "content": "Thudarum — Decent thriller vibes. Some scenes hit hard, others dragged a bit.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T21:00:00Z",
+      "author": "@cinemafan82",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "29",
+      "content": "Thudarum — Decent thriller vibes. Some scenes hit hard, others dragged a bit.",
+      "platform": "twitter",
+      "timestamp": "2024-01-16T22:15:00Z",
+      "author": "@critic868",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "30",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "twitter",
+      "timestamp": "2024-01-16T23:30:00Z",
+      "author": "@enthusiast150",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "31",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T00:45:00Z",
+      "author": "@movielover141",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "32",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T02:00:00Z",
+      "author": "@reviewer921",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "33",
+      "content": "Thudarum — Decent thriller vibes. Some scenes hit hard, others dragged a bit.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T03:15:00Z",
+      "author": "@movielover418",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "34",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T04:30:00Z",
+      "author": "u/filmcritic124",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "35",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T05:45:00Z",
+      "author": "@moviebuff85",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "36",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T07:00:00Z",
+      "author": "u/watcher4",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "37",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T08:15:00Z",
+      "author": "@cinemafan846",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "38",
+      "content": "Thudarum — A solid action thriller with gripping storytelling and powerful performances.",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T09:30:00Z",
+      "author": "@enthusiast473",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "39",
+      "content": "Barbie — Some pacing issues, but overall a strong movie.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T10:45:00Z",
+      "author": "u/reviewer460",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "40",
+      "content": "Barbie — Bit disappointing, but the acting saved it.",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T12:00:00Z",
+      "author": "@movielover344",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "41",
+      "content": "Barbie — An artistic triumph — visually breathtaking.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T13:15:00Z",
+      "author": "u/watcher349",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "42",
+      "content": "Barbie — Cinematography alone makes it worth watching!",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T14:30:00Z",
+      "author": "u/fanatic718",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "43",
+      "content": "Barbie — Absolutely stunning visuals and great performances!",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T15:45:00Z",
+      "author": "@fanatic482",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "44",
+      "content": "Barbie — Such a powerful message — everyone should watch this.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T17:00:00Z",
+      "author": "u/movielover72",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "45",
+      "content": "Barbie — The character development was top-notch.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T18:15:00Z",
+      "author": "@critic70",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "46",
+      "content": "Barbie — Honestly, I expected more. The hype was too much for what we got.",
+      "platform": "instagram",
+      "timestamp": "2024-01-17T19:30:00Z",
+      "author": "@fanatic655",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "47",
+      "content": "Barbie — Incredible direction and storytelling — one of the best films this year.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T20:45:00Z",
+      "author": "@movielover837",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "48",
+      "content": "Barbie — Plot twists kept me hooked till the end!",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T22:00:00Z",
+      "author": "@enthusiast273",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "49",
+      "content": "Barbie — Such a powerful message — everyone should watch this.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T23:15:00Z",
+      "author": "u/critic312",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "50",
+      "content": "Barbie — Too predictable for my taste, but it was entertaining.",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T00:30:00Z",
+      "author": "@cinemafan277",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "51",
+      "content": "Barbie — Too predictable for my taste, but it was entertaining.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T01:45:00Z",
+      "author": "u/fanatic829",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "52",
+      "content": "Barbie — Way better than expected. 10/10 from me.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T03:00:00Z",
+      "author": "u/filmcritic171",
+      "movie_mentioned": "Barbie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "53",
+      "content": "Barbie — Too predictable for my taste, but it was entertaining.",
+      "platform": "instagram",
+      "timestamp": "2024-01-18T04:15:00Z",
+      "author": "@filmcritic660",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "54",
+      "content": "Oppenheimer — A perfect balance of action, emotion, and humor. Brilliant work!",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T05:30:00Z",
+      "author": "@filmcritic709",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "55",
+      "content": "Oppenheimer — Too predictable for my taste, but it was entertaining.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T06:45:00Z",
+      "author": "u/fanatic182",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "56",
+      "content": "Oppenheimer — Hands down one of the best cinematic experiences of the decade!",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T08:00:00Z",
+      "author": "@enthusiast328",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "57",
+      "content": "Oppenheimer — Way better than expected. 10/10 from me.",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T09:15:00Z",
+      "author": "@movielover442",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "58",
+      "content": "Oppenheimer — Absolutely stunning visuals and great performances!",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T10:30:00Z",
+      "author": "@filmcritic424",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "59",
+      "content": "Oppenheimer — Loved the soundtrack and emotional moments throughout the film.",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T11:45:00Z",
+      "author": "@reviewer416",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "60",
+      "content": "Oppenheimer — An artistic triumph — visually breathtaking.",
+      "platform": "instagram",
+      "timestamp": "2024-01-18T13:00:00Z",
+      "author": "@critic447",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "61",
+      "content": "Oppenheimer — Could watch this again and again. A true masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T14:15:00Z",
+      "author": "u/critic544",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "62",
+      "content": "Oppenheimer — Didn't live up to the prequel, but still enjoyable.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T15:30:00Z",
+      "author": "u/critic383",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "63",
+      "content": "Oppenheimer — Such a powerful message — everyone should watch this.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T16:45:00Z",
+      "author": "u/geek53",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "64",
+      "content": "Oppenheimer — Too predictable for my taste, but it was entertaining.",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T18:00:00Z",
+      "author": "@watcher183",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "65",
+      "content": "Oppenheimer — A perfect balance of action, emotion, and humor. Brilliant work!",
+      "platform": "twitter",
+      "timestamp": "2024-01-18T19:15:00Z",
+      "author": "@fanatic143",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "66",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T20:30:00Z",
+      "author": "u/fanatic85",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "67",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-18T21:45:00Z",
+      "author": "@enthusiast422",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "68",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-18T23:00:00Z",
+      "author": "@movielover352",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "69",
+      "content": "Leo — Dark and intense. Not everyone’s cup of tea but well made.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T00:15:00Z",
+      "author": "@filmcritic375",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "70",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T01:30:00Z",
+      "author": "@critic98",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "71",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T02:45:00Z",
+      "author": "@movielover68",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "72",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T04:00:00Z",
+      "author": "@fanatic310",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "73",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T05:15:00Z",
+      "author": "@enthusiast79",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "74",
+      "content": "Leo — Too violent for my liking, could’ve had more emotional balance.",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T06:30:00Z",
+      "author": "u/fanatic845",
+      "movie_mentioned": "Leo",
+      "sentiment": "negative"
+    },
+    {
+      "id": "75",
+      "content": "Leo — Vijay’s performance was fire! Lokesh’s direction and Anirudh’s BGM were pure goosebumps.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T07:45:00Z",
+      "author": "@enthusiast274",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "76",
+      "content": "The Batman — A perfect balance of action, emotion, and humor. Brilliant work!",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T09:00:00Z",
+      "author": "u/cinemafan867",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "77",
+      "content": "The Batman — Way better than expected. 10/10 from me.",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T10:15:00Z",
+      "author": "u/filmlover687",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "78",
+      "content": "The Batman — Incredible direction and storytelling — one of the best films this year.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T11:30:00Z",
+      "author": "@filmcritic798",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "79",
+      "content": "The Batman — Too predictable for my taste, but it was entertaining.",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T12:45:00Z",
+      "author": "u/critic55",
+      "movie_mentioned": "The Batman",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "80",
+      "content": "The Batman — Honestly, I expected more. The hype was too much for what we got.",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T14:00:00Z",
+      "author": "u/fanatic841",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "81",
+      "content": "The Batman — The character development was top-notch.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T15:15:00Z",
+      "author": "@watcher702",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "82",
+      "content": "The Batman — Didn't live up to the prequel, but still enjoyable.",
+      "platform": "instagram",
+      "timestamp": "2024-01-19T16:30:00Z",
+      "author": "@watcher805",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "83",
+      "content": "The Batman — A perfect balance of action, emotion, and humor. Brilliant work!",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T17:45:00Z",
+      "author": "@movielover419",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "84",
+      "content": "Coolie — Pure mass! Vijay ruled the screen. Full-on entertainer!",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T19:00:00Z",
+      "author": "@reviewer438",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "85",
+      "content": "Coolie — Pure mass! Vijay ruled the screen. Full-on entertainer!",
+      "platform": "reddit",
+      "timestamp": "2024-01-19T20:15:00Z",
+      "author": "u/movielover732",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "86",
+      "content": "Coolie — Over the top and predictable. Expected more from Vijay.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T21:30:00Z",
+      "author": "@watcher472",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "87",
+      "content": "Coolie — Had its highs and lows. Good watch for fans.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T22:45:00Z",
+      "author": "@fanatic797",
+      "movie_mentioned": "Coolie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "88",
+      "content": "Coolie — Over the top and predictable. Expected more from Vijay.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T00:00:00Z",
+      "author": "u/movielover226",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "89",
+      "content": "Coolie — Pure mass! Vijay ruled the screen. Full-on entertainer!",
+      "platform": "instagram",
+      "timestamp": "2024-01-20T01:15:00Z",
+      "author": "@critic459",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "90",
+      "content": "Coolie — Pure mass! Vijay ruled the screen. Full-on entertainer!",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T02:30:00Z",
+      "author": "u/moviebuff431",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "91",
+      "content": "Pushpa 2 — Allu Arjun’s swag and attitude carry the film! Mass action sequences.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T03:45:00Z",
+      "author": "u/watcher87",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "92",
+      "content": "Pushpa 2 — Allu Arjun’s swag and attitude carry the film! Mass action sequences.",
+      "platform": "twitter",
+      "timestamp": "2024-01-20T05:00:00Z",
+      "author": "@filmcritic562",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "93",
+      "content": "Pushpa 2 — Raw and intense. Some great moments, some repetitive.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T06:15:00Z",
+      "author": "u/filmcritic771",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "94",
+      "content": "Pushpa 2 — Raw and intense. Some great moments, some repetitive.",
+      "platform": "twitter",
+      "timestamp": "2024-01-20T07:30:00Z",
+      "author": "@watcher281",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "95",
+      "content": "Pushpa 2 — Allu Arjun’s swag and attitude carry the film! Mass action sequences.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T08:45:00Z",
+      "author": "u/fanatic162",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "96",
+      "content": "GOAT — Vijay nailed it again! Futuristic concept with stunning visuals.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T10:00:00Z",
+      "author": "u/geek50",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "97",
+      "content": "GOAT — Vijay nailed it again! Futuristic concept with stunning visuals.",
+      "platform": "instagram",
+      "timestamp": "2024-01-20T11:15:00Z",
+      "author": "@cinemafan488",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "98",
+      "content": "GOAT — Vijay nailed it again! Futuristic concept with stunning visuals.",
+      "platform": "twitter",
+      "timestamp": "2024-01-20T12:30:00Z",
+      "author": "@movielover50",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "99",
+      "content": "GOAT — Concept was interesting but execution felt uneven.",
+      "platform": "twitter",
+      "timestamp": "2024-01-20T13:45:00Z",
+      "author": "@cinemafan25",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "100",
+      "content": "GOAT — Concept was interesting but execution felt uneven.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T15:00:00Z",
+      "author": "u/fanatic718",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "101",
+      "content": "Coolie — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-01-30T08:29:00Z",
+      "author": "u/enthusiast792",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "102",
+      "content": "Coolie — Not worth the ticket price.",
+      "platform": "instagram",
+      "timestamp": "2024-02-01T06:42:00Z",
+      "author": "@enthusiast821",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "103",
+      "content": "Coolie — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-05-21T07:21:00Z",
+      "author": "@critic800",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "104",
+      "content": "Coolie — Could’ve been shorter, but it was watchable.",
+      "platform": "instagram",
+      "timestamp": "2024-02-09T00:00:00Z",
+      "author": "@filmfan466",
+      "movie_mentioned": "Coolie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "105",
+      "content": "Coolie — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-04-01T10:18:00Z",
+      "author": "@enthusiast860",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "106",
+      "content": "Coolie — A must-watch! Totally worth the hype.",
+      "platform": "instagram",
+      "timestamp": "2024-02-29T22:04:00Z",
+      "author": "@critic759",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "107",
+      "content": "Coolie — One of the best films I’ve seen recently.",
+      "platform": "twitter",
+      "timestamp": "2024-05-18T11:55:00Z",
+      "author": "@reviewer817",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "108",
+      "content": "Coolie — One of the best films I’ve seen recently.",
+      "platform": "twitter",
+      "timestamp": "2024-04-04T19:03:00Z",
+      "author": "@critic71",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "109",
+      "content": "Coolie — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-25T18:23:00Z",
+      "author": "@enthusiast394",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "110",
+      "content": "Coolie — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-05-02T07:06:00Z",
+      "author": "u/moviebuff245",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "111",
+      "content": "Coolie — It was fine, not too bad but not great either.",
+      "platform": "reddit",
+      "timestamp": "2024-02-06T08:29:00Z",
+      "author": "u/enthusiast363",
+      "movie_mentioned": "Coolie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "112",
+      "content": "Coolie — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-04-01T20:21:00Z",
+      "author": "u/enthusiast323",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "113",
+      "content": "Coolie — Not worth the ticket price.",
+      "platform": "reddit",
+      "timestamp": "2024-03-01T04:35:00Z",
+      "author": "u/watcher273",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "114",
+      "content": "Coolie — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-14T05:40:00Z",
+      "author": "@enthusiast329",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "115",
+      "content": "Coolie — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-02-29T05:03:00Z",
+      "author": "u/enthusiast827",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "116",
+      "content": "Coolie — Completely overhyped movie.",
+      "platform": "twitter",
+      "timestamp": "2024-05-13T09:45:00Z",
+      "author": "@critic494",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "117",
+      "content": "Coolie — Average experience, nothing too special.",
+      "platform": "twitter",
+      "timestamp": "2024-02-09T16:56:00Z",
+      "author": "@watcher588",
+      "movie_mentioned": "Coolie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "118",
+      "content": "Good movie 👍",
+      "platform": "instagram",
+      "timestamp": "2024-05-16T11:24:00Z",
+      "author": "@reviewer320",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "119",
+      "content": "I liked it.",
+      "platform": "instagram",
+      "timestamp": "2024-05-27T03:25:00Z",
+      "author": "@critic392",
+      "movie_mentioned": "Coolie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "120",
+      "content": "Coolie — Incredible visuals and storyline — 10/10!",
+      "platform": "twitter",
+      "timestamp": "2024-04-19T15:01:00Z",
+      "author": "@moviebuff524",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "121",
+      "content": "Movie: Coolie | Rating: 4/5 | Comment: Nice.",
+      "platform": "instagram",
+      "timestamp": "2024-05-20T02:09:00Z",
+      "author": "@reviewer131",
+      "movie_mentioned": "Coolie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "122",
+      "content": "Coolie — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-31T18:46:00Z",
+      "author": "@critic358",
+      "movie_mentioned": "Coolie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "123",
+      "content": "Thudarum — Incredible visuals and storyline — 10/10!",
+      "platform": "twitter",
+      "timestamp": "2024-04-30T01:24:00Z",
+      "author": "@reviewer55",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "124",
+      "content": "Thudarum — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-02-27T09:09:00Z",
+      "author": "u/watcher696",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "125",
+      "content": "Thudarum — Mixed feelings about this one.",
+      "platform": "reddit",
+      "timestamp": "2024-04-22T03:46:00Z",
+      "author": "u/reviewer200",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "126",
+      "content": "Thudarum — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-05-04T02:22:00Z",
+      "author": "u/moviebuff10",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "127",
+      "content": "Thudarum — Average experience, nothing too special.",
+      "platform": "instagram",
+      "timestamp": "2024-04-25T09:15:00Z",
+      "author": "@enthusiast40",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "128",
+      "content": "Thudarum — A must-watch! Totally worth the hype.",
+      "platform": "instagram",
+      "timestamp": "2024-03-09T09:46:00Z",
+      "author": "@filmfan578",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "129",
+      "content": "Thudarum — Not worth the ticket price.",
+      "platform": "twitter",
+      "timestamp": "2024-05-09T11:17:00Z",
+      "author": "@critic248",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "negative"
+    },
+    {
+      "id": "130",
+      "content": "Thudarum — Incredible visuals and storyline — 10/10!",
+      "platform": "instagram",
+      "timestamp": "2024-05-19T17:46:00Z",
+      "author": "@filmfan48",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "131",
+      "content": "Thudarum — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-15T09:47:00Z",
+      "author": "@enthusiast398",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "132",
+      "content": "Thudarum — A must-watch! Totally worth the hype.",
+      "platform": "reddit",
+      "timestamp": "2024-04-19T16:58:00Z",
+      "author": "u/critic445",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "133",
+      "content": "Thudarum — It was fine, not too bad but not great either.",
+      "platform": "twitter",
+      "timestamp": "2024-02-03T20:08:00Z",
+      "author": "@reviewer775",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "134",
+      "content": "Thudarum — Not worth the ticket price.",
+      "platform": "twitter",
+      "timestamp": "2024-05-21T07:45:00Z",
+      "author": "@enthusiast583",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "negative"
+    },
+    {
+      "id": "135",
+      "content": "Thudarum — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-05-21T05:52:00Z",
+      "author": "@watcher463",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "136",
+      "content": "Thudarum — Completely overhyped movie.",
+      "platform": "twitter",
+      "timestamp": "2024-02-12T06:23:00Z",
+      "author": "@critic572",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "negative"
+    },
+    {
+      "id": "137",
+      "content": "Thudarum — Incredible visuals and storyline — 10/10!",
+      "platform": "twitter",
+      "timestamp": "2024-02-16T09:20:00Z",
+      "author": "@enthusiast739",
+      "movie_mentioned": "Thudarum",
+      "sentiment": "positive"
+    },
+    {
+      "id": "138",
+      "content": "Oppenheimer — Absolutely loved it! A masterpiece.",
+      "platform": "twitter",
+      "timestamp": "2024-04-01T18:02:00Z",
+      "author": "@moviebuff464",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "139",
+      "content": "Oppenheimer — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-05-29T00:44:00Z",
+      "author": "@watcher64",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "140",
+      "content": "Oppenheimer — Incredible visuals and storyline — 10/10!",
+      "platform": "reddit",
+      "timestamp": "2024-02-08T15:06:00Z",
+      "author": "u/reviewer951",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "141",
+      "content": "Oppenheimer — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-02-23T16:20:00Z",
+      "author": "u/critic701",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "142",
+      "content": "Oppenheimer — Not worth the ticket price.",
+      "platform": "instagram",
+      "timestamp": "2024-04-27T10:43:00Z",
+      "author": "@reviewer834",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "negative"
+    },
+    {
+      "id": "143",
+      "content": "Oppenheimer — One of the best films I’ve seen recently.",
+      "platform": "instagram",
+      "timestamp": "2024-03-18T04:48:00Z",
+      "author": "@enthusiast302",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "144",
+      "content": "Oppenheimer — Could’ve been shorter, but it was watchable.",
+      "platform": "instagram",
+      "timestamp": "2024-01-16T08:32:00Z",
+      "author": "@watcher214",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "145",
+      "content": "Oppenheimer — Some parts were good, others were meh.",
+      "platform": "twitter",
+      "timestamp": "2024-03-10T06:29:00Z",
+      "author": "@critic492",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "146",
+      "content": "Oppenheimer — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-03-23T21:19:00Z",
+      "author": "@watcher566",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "147",
+      "content": "Oppenheimer — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-01-19T01:59:00Z",
+      "author": "@reviewer478",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "148",
+      "content": "Oppenheimer — A must-watch! Totally worth the hype.",
+      "platform": "instagram",
+      "timestamp": "2024-04-24T10:58:00Z",
+      "author": "@critic783",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "149",
+      "content": "Oppenheimer — Mixed feelings about this one.",
+      "platform": "twitter",
+      "timestamp": "2024-04-20T09:03:00Z",
+      "author": "@critic196",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "150",
+      "content": "Oppenheimer — A must-watch! Totally worth the hype.",
+      "platform": "reddit",
+      "timestamp": "2024-04-27T00:56:00Z",
+      "author": "u/moviebuff845",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "151",
+      "content": "Oppenheimer — It was fine, not too bad but not great either.",
+      "platform": "instagram",
+      "timestamp": "2024-05-20T07:33:00Z",
+      "author": "@watcher287",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "152",
+      "content": "Oppenheimer — It was fine, not too bad but not great either.",
+      "platform": "twitter",
+      "timestamp": "2024-02-21T23:27:00Z",
+      "author": "@watcher808",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "153",
+      "content": "Oppenheimer — Absolutely loved it! A masterpiece.",
+      "platform": "twitter",
+      "timestamp": "2024-05-21T18:39:00Z",
+      "author": "@filmfan897",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "154",
+      "content": "Oppenheimer — Really disappointing. Expected so much more.",
+      "platform": "reddit",
+      "timestamp": "2024-04-24T15:14:00Z",
+      "author": "u/filmfan165",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "negative"
+    },
+    {
+      "id": "155",
+      "content": "Oppenheimer — Incredible visuals and storyline — 10/10!",
+      "platform": "reddit",
+      "timestamp": "2024-05-27T18:40:00Z",
+      "author": "u/reviewer891",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "156",
+      "content": "Oppenheimer — One of the best films I’ve seen recently.",
+      "platform": "instagram",
+      "timestamp": "2024-03-05T11:16:00Z",
+      "author": "@enthusiast215",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "157",
+      "content": "Oppenheimer — One of the best films I’ve seen recently.",
+      "platform": "instagram",
+      "timestamp": "2024-04-19T00:51:00Z",
+      "author": "@enthusiast232",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "158",
+      "content": "Oppenheimer — Some parts were good, others were meh.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T20:07:00Z",
+      "author": "@reviewer51",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "159",
+      "content": "I think I think I think it’s good good good.",
+      "platform": "instagram",
+      "timestamp": "2024-03-25T21:55:00Z",
+      "author": "@enthusiast135",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "160",
+      "content": "Oppenheimer — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-04-14T14:06:00Z",
+      "author": "@critic418",
+      "movie_mentioned": "Oppenheimer",
+      "sentiment": "positive"
+    },
+    {
+      "id": "161",
+      "content": "GOAT — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-04-25T18:42:00Z",
+      "author": "u/reviewer403",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "162",
+      "content": "GOAT — One of the best films I’ve seen recently.",
+      "platform": "twitter",
+      "timestamp": "2024-05-14T22:41:00Z",
+      "author": "@filmfan517",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "163",
+      "content": "GOAT — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-05-13T03:10:00Z",
+      "author": "@moviebuff875",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "164",
+      "content": "GOAT — Really disappointing. Expected so much more.",
+      "platform": "reddit",
+      "timestamp": "2024-02-10T14:04:00Z",
+      "author": "u/critic991",
+      "movie_mentioned": "GOAT",
+      "sentiment": "negative"
+    },
+    {
+      "id": "165",
+      "content": "GOAT — Mixed feelings about this one.",
+      "platform": "instagram",
+      "timestamp": "2024-06-01T15:37:00Z",
+      "author": "@enthusiast202",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "166",
+      "content": "GOAT — Couldn’t even finish it. Terrible editing.",
+      "platform": "instagram",
+      "timestamp": "2024-05-22T02:54:00Z",
+      "author": "@reviewer119",
+      "movie_mentioned": "GOAT",
+      "sentiment": "negative"
+    },
+    {
+      "id": "167",
+      "content": "GOAT — Average experience, nothing too special.",
+      "platform": "twitter",
+      "timestamp": "2024-04-14T22:48:00Z",
+      "author": "@critic305",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "168",
+      "content": "GOAT — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-05-19T01:17:00Z",
+      "author": "@filmfan714",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "169",
+      "content": "I liked it.",
+      "platform": "twitter",
+      "timestamp": "2024-03-04T12:06:00Z",
+      "author": "@filmfan920",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "170",
+      "content": "GOAT — Average experience, nothing too special.",
+      "platform": "twitter",
+      "timestamp": "2024-05-02T09:51:00Z",
+      "author": "@critic412",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "171",
+      "content": "GOAT — Some parts were good, others were meh.",
+      "platform": "reddit",
+      "timestamp": "2024-03-12T04:13:00Z",
+      "author": "u/reviewer776",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "172",
+      "content": "Awesome awesome awesome!!!",
+      "platform": "instagram",
+      "timestamp": "2024-04-18T06:47:00Z",
+      "author": "@moviebuff231",
+      "movie_mentioned": "GOAT",
+      "sentiment": "positive"
+    },
+    {
+      "id": "173",
+      "content": "GOAT — Some parts were good, others were meh.",
+      "platform": "reddit",
+      "timestamp": "2024-05-31T15:53:00Z",
+      "author": "u/moviebuff788",
+      "movie_mentioned": "GOAT",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "174",
+      "content": "Titanic — Bad pacing and weak performances.",
+      "platform": "instagram",
+      "timestamp": "2024-02-15T02:35:00Z",
+      "author": "@reviewer684",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "175",
+      "content": "Titanic — Absolutely loved it! A masterpiece.",
+      "platform": "twitter",
+      "timestamp": "2024-03-17T08:33:00Z",
+      "author": "@filmfan814",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "176",
+      "content": "Titanic — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-01-15T18:11:00Z",
+      "author": "@watcher128",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "177",
+      "content": "Titanic — Could’ve been shorter, but it was watchable.",
+      "platform": "reddit",
+      "timestamp": "2024-03-05T11:22:00Z",
+      "author": "u/reviewer491",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "178",
+      "content": "Titanic — Really disappointing. Expected so much more.",
+      "platform": "reddit",
+      "timestamp": "2024-01-31T10:53:00Z",
+      "author": "u/moviebuff653",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "179",
+      "content": "Titanic — It was fine, not too bad but not great either.",
+      "platform": "twitter",
+      "timestamp": "2024-03-09T14:42:00Z",
+      "author": "@filmfan979",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "180",
+      "content": "Titanic — Incredible visuals and storyline — 10/10!",
+      "platform": "instagram",
+      "timestamp": "2024-05-07T16:02:00Z",
+      "author": "@enthusiast532",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "181",
+      "content": "Titanic — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-01-20T14:38:00Z",
+      "author": "u/watcher105",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "182",
+      "content": "Titanic — Some parts were good, others were meh.",
+      "platform": "twitter",
+      "timestamp": "2024-03-21T07:31:00Z",
+      "author": "@moviebuff702",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "183",
+      "content": "Titanic — Absolutely loved it! A masterpiece.",
+      "platform": "instagram",
+      "timestamp": "2024-05-06T23:42:00Z",
+      "author": "@watcher851",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "184",
+      "content": "Titanic — It was fine, not too bad but not great either.",
+      "platform": "twitter",
+      "timestamp": "2024-04-28T04:30:00Z",
+      "author": "@enthusiast484",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "185",
+      "content": "Titanic — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-05-21T07:09:00Z",
+      "author": "@filmfan208",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "186",
+      "content": "Titanic — Could’ve been shorter, but it was watchable.",
+      "platform": "instagram",
+      "timestamp": "2024-05-28T01:50:00Z",
+      "author": "@watcher693",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "187",
+      "content": "Titanic — Couldn’t even finish it. Terrible editing.",
+      "platform": "twitter",
+      "timestamp": "2024-04-11T20:34:00Z",
+      "author": "@filmfan537",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "188",
+      "content": "Titanic — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-05-02T18:32:00Z",
+      "author": "@reviewer994",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "189",
+      "content": "Titanic — Mixed feelings about this one.",
+      "platform": "reddit",
+      "timestamp": "2024-05-05T00:22:00Z",
+      "author": "u/filmfan525",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "190",
+      "content": "Titanic — Incredible visuals and storyline — 10/10!",
+      "platform": "twitter",
+      "timestamp": "2024-05-01T16:02:00Z",
+      "author": "@enthusiast318",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "191",
+      "content": "Titanic — Incredible visuals and storyline — 10/10!",
+      "platform": "instagram",
+      "timestamp": "2024-05-27T18:53:00Z",
+      "author": "@reviewer989",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "192",
+      "content": "Titanic — Completely overhyped movie.",
+      "platform": "twitter",
+      "timestamp": "2024-02-05T23:59:00Z",
+      "author": "@filmfan337",
+      "movie_mentioned": "Titanic",
+      "sentiment": "negative"
+    },
+    {
+      "id": "193",
+      "content": "Good movie 👍",
+      "platform": "instagram",
+      "timestamp": "2024-05-31T03:25:00Z",
+      "author": "@moviebuff584",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "194",
+      "content": "Titanic — Mixed feelings about this one.",
+      "platform": "instagram",
+      "timestamp": "2024-02-01T01:22:00Z",
+      "author": "@reviewer792",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "195",
+      "content": "Titanic — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-02-12T12:59:00Z",
+      "author": "@reviewer917",
+      "movie_mentioned": "Titanic",
+      "sentiment": "positive"
+    },
+    {
+      "id": "196",
+      "content": "Titanic — Could’ve been shorter, but it was watchable.",
+      "platform": "reddit",
+      "timestamp": "2024-03-01T22:39:00Z",
+      "author": "u/filmfan685",
+      "movie_mentioned": "Titanic",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "197",
+      "content": "The Batman — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-03-31T04:22:00Z",
+      "author": "u/watcher479",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "198",
+      "content": "The Batman — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-02-22T21:41:00Z",
+      "author": "u/watcher928",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "199",
+      "content": "The Batman — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-03T17:35:00Z",
+      "author": "@moviebuff939",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "200",
+      "content": "Good movie 👍",
+      "platform": "instagram",
+      "timestamp": "2024-04-20T22:31:00Z",
+      "author": "@critic129",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "201",
+      "content": "The Batman — Bad pacing and weak performances.",
+      "platform": "twitter",
+      "timestamp": "2024-05-06T00:02:00Z",
+      "author": "@enthusiast21",
+      "movie_mentioned": "The Batman",
+      "sentiment": "negative"
+    },
+    {
+      "id": "202",
+      "content": "The Batman — Could’ve been shorter, but it was watchable.",
+      "platform": "reddit",
+      "timestamp": "2024-05-22T04:56:00Z",
+      "author": "u/filmfan261",
+      "movie_mentioned": "The Batman",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "203",
+      "content": "The Batman — One of the best films I’ve seen recently.",
+      "platform": "instagram",
+      "timestamp": "2024-04-10T02:11:00Z",
+      "author": "@critic333",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "204",
+      "content": "The Batman — Some parts were good, others were meh.",
+      "platform": "instagram",
+      "timestamp": "2024-03-16T04:42:00Z",
+      "author": "@filmfan375",
+      "movie_mentioned": "The Batman",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "205",
+      "content": "The Batman — Some parts were good, others were meh.",
+      "platform": "twitter",
+      "timestamp": "2024-02-26T14:00:00Z",
+      "author": "@watcher490",
+      "movie_mentioned": "The Batman",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "206",
+      "content": "The Batman — Not worth the ticket price.",
+      "platform": "twitter",
+      "timestamp": "2024-02-17T10:34:00Z",
+      "author": "@enthusiast15",
+      "movie_mentioned": "The Batman",
+      "sentiment": "negative"
+    },
+    {
+      "id": "207",
+      "content": "Awesome awesome awesome!!!",
+      "platform": "instagram",
+      "timestamp": "2024-05-07T23:28:00Z",
+      "author": "@critic721",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "208",
+      "content": "The Batman — Incredible visuals and storyline — 10/10!",
+      "platform": "twitter",
+      "timestamp": "2024-03-17T13:04:00Z",
+      "author": "@filmfan201",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "209",
+      "content": "The Batman — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-02-25T10:59:00Z",
+      "author": "u/moviebuff975",
+      "movie_mentioned": "The Batman",
+      "sentiment": "positive"
+    },
+    {
+      "id": "210",
+      "content": "Good movie 👍",
+      "platform": "twitter",
+      "timestamp": "2024-05-15T18:30:00Z",
+      "author": "@watcher723",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "211",
+      "content": "Barbie — Mixed feelings about this one.",
+      "platform": "reddit",
+      "timestamp": "2024-02-07T16:34:00Z",
+      "author": "u/filmfan702",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "212",
+      "content": "Barbie — A must-watch! Totally worth the hype.",
+      "platform": "instagram",
+      "timestamp": "2024-05-30T06:38:00Z",
+      "author": "@watcher476",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "213",
+      "content": "Barbie — A must-watch! Totally worth the hype.",
+      "platform": "reddit",
+      "timestamp": "2024-05-09T05:24:00Z",
+      "author": "u/filmfan914",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "214",
+      "content": "Barbie — A must-watch! Totally worth the hype.",
+      "platform": "reddit",
+      "timestamp": "2024-02-26T20:33:00Z",
+      "author": "u/filmfan344",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "215",
+      "content": "Barbie — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-05-30T15:55:00Z",
+      "author": "u/watcher514",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "216",
+      "content": "Barbie — Mixed feelings about this one.",
+      "platform": "reddit",
+      "timestamp": "2024-01-17T03:57:00Z",
+      "author": "u/enthusiast922",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "217",
+      "content": "Barbie — Mixed feelings about this one.",
+      "platform": "twitter",
+      "timestamp": "2024-01-25T05:02:00Z",
+      "author": "@enthusiast595",
+      "movie_mentioned": "Barbie",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "218",
+      "content": "Barbie — Emotionally moving and beautifully shot.",
+      "platform": "instagram",
+      "timestamp": "2024-05-11T01:24:00Z",
+      "author": "@enthusiast416",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "219",
+      "content": "Awesome awesome awesome!!!",
+      "platform": "twitter",
+      "timestamp": "2024-02-10T03:11:00Z",
+      "author": "@filmfan263",
+      "movie_mentioned": "Barbie",
+      "sentiment": "negative"
+    },
+    {
+      "id": "220",
+      "content": "Barbie — A must-watch! Totally worth the hype.",
+      "platform": "instagram",
+      "timestamp": "2024-03-13T14:24:00Z",
+      "author": "@reviewer358",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "221",
+      "content": "I think I think I think it’s good good good.",
+      "platform": "twitter",
+      "timestamp": "2024-05-20T17:34:00Z",
+      "author": "@critic510",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "222",
+      "content": "Barbie — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-03-12T15:05:00Z",
+      "author": "u/watcher419",
+      "movie_mentioned": "Barbie",
+      "sentiment": "positive"
+    },
+    {
+      "id": "223",
+      "content": "Pushpa 2 — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-04-14T19:30:00Z",
+      "author": "u/watcher696",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "224",
+      "content": "I think I think I think it’s good good good.",
+      "platform": "reddit",
+      "timestamp": "2024-03-20T19:13:00Z",
+      "author": "u/watcher735",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "225",
+      "content": "Pushpa 2 — Average experience, nothing too special.",
+      "platform": "twitter",
+      "timestamp": "2024-02-23T01:23:00Z",
+      "author": "@moviebuff414",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "226",
+      "content": "Pushpa 2 — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-05-22T06:06:00Z",
+      "author": "u/enthusiast235",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "227",
+      "content": "Pushpa 2 — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-05-30T15:56:00Z",
+      "author": "@critic242",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "228",
+      "content": "Pushpa 2 — Some parts were good, others were meh.",
+      "platform": "reddit",
+      "timestamp": "2024-05-08T18:03:00Z",
+      "author": "u/watcher841",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "229",
+      "content": "Pushpa 2 — Bad pacing and weak performances.",
+      "platform": "instagram",
+      "timestamp": "2024-03-28T07:01:00Z",
+      "author": "@moviebuff266",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "230",
+      "content": "Pushpa 2 — Couldn’t even finish it. Terrible editing.",
+      "platform": "instagram",
+      "timestamp": "2024-01-20T01:28:00Z",
+      "author": "@enthusiast625",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "231",
+      "content": "Pushpa 2 — One of the best films I’ve seen recently.",
+      "platform": "twitter",
+      "timestamp": "2024-02-03T08:23:00Z",
+      "author": "@moviebuff344",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "232",
+      "content": "Pushpa 2 — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-03-13T22:12:00Z",
+      "author": "@moviebuff705",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "233",
+      "content": "Pushpa 2 — Emotionally moving and beautifully shot.",
+      "platform": "reddit",
+      "timestamp": "2024-02-12T10:51:00Z",
+      "author": "u/watcher72",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "positive"
+    },
+    {
+      "id": "234",
+      "content": "Pushpa 2 — Couldn’t even finish it. Terrible editing.",
+      "platform": "instagram",
+      "timestamp": "2024-02-01T23:53:00Z",
+      "author": "@reviewer170",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "235",
+      "content": "Pushpa 2 — Really disappointing. Expected so much more.",
+      "platform": "instagram",
+      "timestamp": "2024-05-02T14:04:00Z",
+      "author": "@critic638",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "236",
+      "content": "Pushpa 2 — Average experience, nothing too special.",
+      "platform": "reddit",
+      "timestamp": "2024-03-12T10:57:00Z",
+      "author": "u/moviebuff867",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "237",
+      "content": "Pushpa 2 — Completely overhyped movie.",
+      "platform": "instagram",
+      "timestamp": "2024-03-21T06:56:00Z",
+      "author": "@moviebuff113",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "238",
+      "content": "Pushpa 2 — Completely overhyped movie.",
+      "platform": "reddit",
+      "timestamp": "2024-04-07T02:42:00Z",
+      "author": "u/moviebuff395",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "239",
+      "content": "Pushpa 2 — Some parts were good, others were meh.",
+      "platform": "instagram",
+      "timestamp": "2024-01-29T20:23:00Z",
+      "author": "@filmfan87",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "240",
+      "content": "Pushpa 2 — Couldn’t even finish it. Terrible editing.",
+      "platform": "instagram",
+      "timestamp": "2024-03-27T12:21:00Z",
+      "author": "@watcher196",
+      "movie_mentioned": "Pushpa 2",
+      "sentiment": "negative"
+    },
+    {
+      "id": "241",
+      "content": "Leo — It was fine, not too bad but not great either.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T00:41:00Z",
+      "author": "u/enthusiast22",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "242",
+      "content": "Leo — A must-watch! Totally worth the hype.",
+      "platform": "twitter",
+      "timestamp": "2024-01-17T05:40:00Z",
+      "author": "@filmfan987",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "243",
+      "content": "Leo — Couldn’t even finish it. Terrible editing.",
+      "platform": "reddit",
+      "timestamp": "2024-01-18T03:22:00Z",
+      "author": "u/reviewer455",
+      "movie_mentioned": "Leo",
+      "sentiment": "negative"
+    },
+    {
+      "id": "244",
+      "content": "I liked it.",
+      "platform": "instagram",
+      "timestamp": "2024-05-02T03:47:00Z",
+      "author": "@enthusiast414",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "245",
+      "content": "Leo — It was fine, not too bad but not great either.",
+      "platform": "twitter",
+      "timestamp": "2024-05-06T15:04:00Z",
+      "author": "@critic256",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "246",
+      "content": "Leo — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-02-02T16:03:00Z",
+      "author": "u/filmfan250",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "247",
+      "content": "Leo — One of the best films I’ve seen recently.",
+      "platform": "reddit",
+      "timestamp": "2024-03-11T15:58:00Z",
+      "author": "u/reviewer759",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "248",
+      "content": "Leo — Absolutely loved it! A masterpiece.",
+      "platform": "reddit",
+      "timestamp": "2024-03-03T17:35:00Z",
+      "author": "u/reviewer422",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "249",
+      "content": "Leo — Could’ve been shorter, but it was watchable.",
+      "platform": "reddit",
+      "timestamp": "2024-02-22T07:49:00Z",
+      "author": "u/reviewer64",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "250",
+      "content": "Movie: Leo | Rating: 4/5 | Comment: Nice.",
+      "platform": "instagram",
+      "timestamp": "2024-01-29T11:39:00Z",
+      "author": "@reviewer851",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "251",
+      "content": "Leo — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-05-07T01:39:00Z",
+      "author": "@watcher138",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "252",
+      "content": "Leo — Really disappointing. Expected so much more.",
+      "platform": "instagram",
+      "timestamp": "2024-03-07T06:57:00Z",
+      "author": "@critic678",
+      "movie_mentioned": "Leo",
+      "sentiment": "negative"
+    },
+    {
+      "id": "253",
+      "content": "Leo — Incredible visuals and storyline — 10/10!",
+      "platform": "instagram",
+      "timestamp": "2024-04-19T06:21:00Z",
+      "author": "@moviebuff748",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "254",
+      "content": "Leo — Emotionally moving and beautifully shot.",
+      "platform": "twitter",
+      "timestamp": "2024-02-19T20:48:00Z",
+      "author": "@watcher568",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "255",
+      "content": "I think I think I think it’s good good good.",
+      "platform": "instagram",
+      "timestamp": "2024-03-27T03:25:00Z",
+      "author": "@watcher926",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "256",
+      "content": "Leo — Mixed feelings about this one.",
+      "platform": "reddit",
+      "timestamp": "2024-05-05T02:54:00Z",
+      "author": "u/enthusiast292",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "257",
+      "content": "Leo — Average experience, nothing too special.",
+      "platform": "reddit",
+      "timestamp": "2024-01-21T04:28:00Z",
+      "author": "u/watcher574",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "258",
+      "content": "Leo — Bad pacing and weak performances.",
+      "platform": "instagram",
+      "timestamp": "2024-03-09T06:10:00Z",
+      "author": "@filmfan955",
+      "movie_mentioned": "Leo",
+      "sentiment": "negative"
+    },
+    {
+      "id": "259",
+      "content": "Leo — A must-watch! Totally worth the hype.",
+      "platform": "reddit",
+      "timestamp": "2024-03-12T22:35:00Z",
+      "author": "u/watcher343",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
+    },
+    {
+      "id": "260",
+      "content": "Leo — Completely overhyped movie.",
+      "platform": "twitter",
+      "timestamp": "2024-03-19T04:42:00Z",
+      "author": "@watcher440",
+      "movie_mentioned": "Leo",
+      "sentiment": "negative"
+    },
+    {
+      "id": "261",
+      "content": "Leo — Could’ve been shorter, but it was watchable.",
+      "platform": "twitter",
+      "timestamp": "2024-05-14T20:28:00Z",
+      "author": "@enthusiast925",
+      "movie_mentioned": "Leo",
+      "sentiment": "neutral"
+    },
+    {
+      "id": "262",
+      "content": "Leo — Incredible visuals and storyline — 10/10!",
+      "platform": "reddit",
+      "timestamp": "2024-04-28T20:18:00Z",
+      "author": "u/filmfan125",
+      "movie_mentioned": "Leo",
+      "sentiment": "positive"
     }
   ]
 }

@@ -1,10 +1,14 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Literal, Optional, List, Dict
+from typing import Literal, Optional, List, Dict, Any
+import httpx
 from movie_service import MovieService
 from news_service import NewsService
 from social_analysis_service import SocialAnalysisService
+from real_social_service import RealSocialMediaService
+from tmdb_service import TMDBService
+from config import TMDB_API_KEY, TMDB_BASE_URL, TMDB_HEADERS
 
 app = FastAPI(title="CineLenz API")
 
@@ -21,6 +25,8 @@ app.add_middleware(
 movie_service = MovieService()
 news_service = NewsService()
 social_service = SocialAnalysisService()
+real_social_service = RealSocialMediaService()
+tmdb_service = TMDBService()
 
 Range = Literal["24h", "week", "month"]
 Lang = Literal["en", "hi", "ta", "te", "es"]
@@ -47,12 +53,77 @@ class MovieSearchResponse(BaseModel):
 
 class MovieDetailsResponse(BaseModel):
     movie: Dict
+    
+# New proxy endpoints for TMDB API
+@app.get("/api/tmdb/trending/{media_type}/{time_window}")
+async def get_trending(media_type: str, time_window: str, language: str = "en"):
+    """Proxy endpoint for TMDB trending API"""
+    try:
+        url = f"{TMDB_BASE_URL}/trending/{media_type}/{time_window}"
+        params = {"language": language, "api_key": TMDB_API_KEY}
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params, headers=TMDB_HEADERS)
+            response.raise_for_status()
+            return response.json()
+    except httpx.HTTPError as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching trending data: {str(e)}")
+
+@app.get("/api/tmdb/search/movie")
+async def search_movies(query: str, language: str = "en", page: int = 1):
+    """Proxy endpoint for TMDB movie search API"""
+    try:
+        url = f"{TMDB_BASE_URL}/search/movie"
+        params = {"query": query, "language": language, "page": page, "api_key": TMDB_API_KEY}
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params, headers=TMDB_HEADERS)
+            response.raise_for_status()
+            return response.json()
+    except httpx.HTTPError as e:
+        raise HTTPException(status_code=500, detail=f"Error searching movies: {str(e)}")
+
+@app.get("/api/tmdb/movie/{movie_id}")
+async def get_movie_details(movie_id: int, language: str = "en"):
+    """Proxy endpoint for TMDB movie details API"""
+    try:
+        url = f"{TMDB_BASE_URL}/movie/{movie_id}"
+        params = {"language": language, "api_key": TMDB_API_KEY}
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params, headers=TMDB_HEADERS)
+            response.raise_for_status()
+            return response.json()
+    except httpx.HTTPError as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching movie details: {str(e)}")
 
 class NewsArticle(BaseModel):
     title: str
     description: str
     url: str
     urlToImage: Optional[str] = None
+    
+@app.get("/analyze/social")
+async def analyze_social_media(movie: str):
+    """Analyze social media posts for a specific movie using TMDB reviews"""
+    try:
+        # Use the TMDB service to get movie reviews
+        thread = await tmdb_service.get_movie_social_analysis(movie)
+        
+        if not thread:
+            # Fallback to sample data if TMDB fails
+            posts = social_service.load_posts("src/backend/sample_posts.json")
+            movie_posts = social_service.filter_posts_by_movie(posts, movie)
+            
+            if movie_posts:
+                thread = social_service.analyze_thread(movie_posts)
+            else:
+                raise HTTPException(status_code=404, detail=f"No social media posts found for movie: {movie}")
+        
+        # Return the thread data
+        return {"threads": [thread.__dict__]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error analyzing social media: {str(e)}")
     publishedAt: str
     source: str
     author: Optional[str] = None
@@ -218,34 +289,62 @@ async def search_film_news(query: str, lang: Lang = "en", page_size: int = 20):
 async def analyze_social_posts():
     """Analyze social media posts and return threads"""
     try:
-        threads = social_service.analyze_all_posts("sample_posts.json")
+        import os
+        import traceback
+        
+        # Print debugging information
+        print("Current directory:", os.getcwd())
+        sample_posts_path = os.path.join(os.path.dirname(__file__), "sample_posts.json")
+        print("Sample posts path:", sample_posts_path)
+        print("File exists:", os.path.exists(sample_posts_path))
+        
+        # Load and process posts
+        threads = social_service.analyze_all_posts(sample_posts_path)
         
         # Convert to response format
         response_data = []
         for thread in threads:
-            response_data.append({
+            thread_data = {
                 "thread_id": thread.thread_id,
                 "movie_title": thread.movie_title,
                 "post_count": len(thread.posts),
                 "summary": thread.summary,
                 "sentiment": thread.sentiment,
                 "sentiment_score": thread.sentiment_score,
-                "posts": [
-                    {
+                "posts": []
+            }
+            
+            # Add posts with proper error handling
+            for post in thread.posts:
+                try:
+                    post_data = {
                         "id": post.id,
                         "content": post.content,
                         "platform": post.platform,
+                        "sentiment": post.sentiment if post.sentiment in ["positive", "negative", "neutral"] else "neutral",
                         "author": post.author,
                         "timestamp": post.timestamp
-                    } for post in thread.posts
-                ]
-            })
+                    }
+                    thread_data["posts"].append(post_data)
+                except Exception as post_error:
+                    print(f"Error processing post: {str(post_error)}")
+                    continue
+            
+            response_data.append(thread_data)
         
         return {"threads": response_data, "total_threads": len(threads)}
     
     except Exception as e:
+        print(f"Error in analyze_social_posts: {str(e)}")
+        print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Error analyzing posts: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", type=int, default=8001)
+    args = parser.parse_args()
+    
+    uvicorn.run(app, host="0.0.0.0", port=args.port)

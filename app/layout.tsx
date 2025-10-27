@@ -4,6 +4,8 @@ import { Sora, Geist } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import NavigationLoader from "@/components/navigation-loader"
+import { WatchlistProvider } from "@/hooks/use-watchlist"
 
 export const metadata: Metadata = {
   title: "CineLenz — See cinema through the social lens",
@@ -31,9 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${geist.variable} antialiased dark`}>
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <WatchlistProvider>
+          <NavigationLoader />
+          <Navbar />
+          {children}
+          <Footer />
+        </WatchlistProvider>
       </body>
     </html>
   )
