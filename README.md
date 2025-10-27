@@ -110,7 +110,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 🙋‍♂️ Team and Credits
 
-Built by [Your Name or team] for [Hackathon Name]  
+Built by Team cinephiles for Hackathon
 Powered by open source libraries and APIs
 
 ---
