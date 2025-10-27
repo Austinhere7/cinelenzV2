@@ -1,10 +1,9 @@
 # CineLenz — See Cinema Through the Social Lens
 
 Team Members:
-- Austin Chen (Full Stack Developer) - austin@example.com
-- Sarah Johnson (UI/UX Designer) - sarah@example.com
-- Michael Lee (Backend Developer) - michael@example.com
-- Emma Wilson (Data Scientist) - emma@example.com
+- Austin Chen (Full Stack Developer) 
+- Allen p jison (UI/UX Designer)
+- Adithyan cp (Backend Developer)
 
 ## Elevator Pitch
 CineLenz analyzes social media conversations about movies in real-time, providing sentiment analysis, trending topics, and audience insights through an intuitive visual interface.
