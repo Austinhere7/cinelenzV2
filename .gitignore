@@ -117,3 +117,4 @@ venv.bak/
 
 # FastAPI
 .pytest_cache/
+.vercel
