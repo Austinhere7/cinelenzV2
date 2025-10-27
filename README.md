@@ -1,7 +1,7 @@
 # CineLenz — See Cinema Through the Social Lens
 
 Team Members:
-- Austin Chen (Full Stack Developer) 
+- Austin Shajan (Full Stack Developer) 
 - Allen p jison (UI/UX Designer)
 - Adithyan cp (Backend Developer)
 
