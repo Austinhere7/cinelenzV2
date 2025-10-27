@@ -85,14 +85,6 @@ export function Footer() {
                   href="#"
                   className="font-space-mono text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
-                  Press
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="font-space-mono text-muted-foreground hover:text-primary transition-colors duration-200"
-                >
                   Contact
                 </a>
               </li>
