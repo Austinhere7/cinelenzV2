@@ -77,7 +77,10 @@ dist
 
 # Gatsby files
 .cache/
-public
+
+# Allow Next.js public assets to be committed
+!public/
+!public/**
 
 # Storybook build outputs
 .out

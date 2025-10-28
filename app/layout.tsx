@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Sora, Geist } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
@@ -11,16 +11,6 @@ export const metadata: Metadata = {
   title: "CineLenz — See cinema through the social lens",
   description: "Real-time social threads, sentiment, and trends for movies across X, Reddit, and YouTube.",
   generator: "v0.app",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -29,6 +19,17 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 }
 
 const sora = Sora({
