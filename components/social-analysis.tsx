@@ -257,6 +257,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       }
 
       if (tmdbResults.length > 0) {
+        console.log(`[TMDB] Found ${tmdbResults.length} TMDB reviews for "${movieTitle}"`);
         const tmdbPosts = tmdbResults.map((review: any, index: number) => {
           let sentiment: "positive" | "negative" | "neutral" = "neutral";
           const rating = review.author_details?.rating;
@@ -278,11 +279,15 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             sentiment
           };
         }).filter((p: Post) => !isBannedContent(p.content));
+        console.log(`[TMDB] After filtering: ${tmdbPosts.length} TMDB reviews added (${tmdbResults.length - tmdbPosts.length} filtered out)`);
         allPosts.push(...tmdbPosts);
+      } else {
+        console.warn(`[TMDB] No TMDB reviews found for "${movieTitle}"`);
       }
       
       // Add OMDb ratings as synthetic reviews - EXPANDED for more reviews per movie
       if (omdbData && omdbData.Response === "True") {
+        console.log(`[OMDb] Processing OMDb data for "${movieTitle}"`);
         const baseSentiment = (rating: number, threshold1: number, threshold2: number) => {
           if (rating >= threshold1) return "positive";
           if (rating < threshold2) return "negative";
@@ -439,6 +444,10 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             sentiment: metaSentiment
           });
         }
+        
+        console.log(`[OMDb] Added IMDB, RT, and Metacritic synthetic reviews from OMDb data`);
+      } else {
+        console.warn(`[OMDb] No valid OMDb data for "${movieTitle}"`);
       }
       
       // Guardian reviews - DISABLED (not fetching or displaying)
@@ -565,6 +574,13 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
           });
         }
       }
+      
+      // Log final review count by platform
+      const platformCounts = allPosts.reduce((acc, post) => {
+        acc[post.platform] = (acc[post.platform] || 0) + 1;
+        return acc;
+      }, {} as Record<string, number>);
+      console.log(`[Review Summary] Total reviews: ${allPosts.length}`, platformCounts);
       
       if (allPosts.length > 0) {
         // Calculate overall sentiment
