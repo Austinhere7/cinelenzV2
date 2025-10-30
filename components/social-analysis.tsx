@@ -219,6 +219,20 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       const omdbResponse = omdbSet.status === 'fulfilled' ? omdbSet.value : null;
       const ytSearchResponse = ytSearchSet.status === 'fulfilled' ? ytSearchSet.value : null;
 
+      // Log TMDB response
+      if (reviewsResponse) {
+        console.log(`[TMDB] Reviews fetch status: ${reviewsResponse.status} ${reviewsResponse.statusText}`);
+      } else {
+        console.error('[TMDB] Reviews request failed or rejected');
+      }
+
+      // Log OMDb response
+      if (omdbResponse) {
+        console.log(`[OMDb] Fetch status: ${omdbResponse.status} ${omdbResponse.statusText}`);
+      } else {
+        console.error('[OMDb] Request failed or rejected');
+      }
+
       if (!reviewsResponse || !reviewsResponse.ok) {
         // TMDB reviews are primary; if unavailable, continue but with empty set
         console.warn('TMDB reviews unavailable');
@@ -234,6 +248,8 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
   const reviewsData = reviewsResponse ? await reviewsResponse.json() : { results: [], total_pages: 1 };
       const omdbData = omdbResponse && omdbResponse.ok ? await omdbResponse.json() : null;
       const ytSearchData = ytSearchResponse && ytSearchResponse.ok ? await ytSearchResponse.json() : null;
+      
+      console.log(`[Data Check] TMDB results: ${reviewsData.results?.length || 0}, OMDb valid: ${omdbData?.Response === "True"}, YouTube items: ${ytSearchData?.items?.length || 0}`);
       
       const allPosts: Post[] = [];
       
