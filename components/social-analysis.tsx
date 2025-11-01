@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useRef } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -8,20 +8,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MessageSquare, TrendingUp, Users, Search, BarChart3, X, ChevronDown, ChevronRight } from "lucide-react"
-import { ReviewPhrases } from "@/components/review-phrases"
-import dynamic from 'next/dynamic'
 
-// Lazy load heavy chart components
-const LineChart = dynamic(() => import('recharts').then(mod => ({ default: mod.LineChart })), { ssr: false })
-const Line = dynamic(() => import('recharts').then(mod => ({ default: mod.Line })), { ssr: false })
-const BarChart = dynamic(() => import('recharts').then(mod => ({ default: mod.BarChart })), { ssr: false })
-const Bar = dynamic(() => import('recharts').then(mod => ({ default: mod.Bar })), { ssr: false })
-const XAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.XAxis })), { ssr: false })
-const YAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.YAxis })), { ssr: false })
-const CartesianGrid = dynamic(() => import('recharts').then(mod => ({ default: mod.CartesianGrid })), { ssr: false })
-const RechartsTooltip = dynamic(() => import('recharts').then(mod => ({ default: mod.Tooltip })), { ssr: false })
-const Legend = dynamic(() => import('recharts').then(mod => ({ default: mod.Legend })), { ssr: false })
-const ResponsiveContainer = dynamic(() => import('recharts').then(mod => ({ default: mod.ResponsiveContainer })), { ssr: false })
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer } from 'recharts'
 
 interface Thread {
   thread_id: string
@@ -294,7 +282,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       
       // Add OMDb ratings as synthetic reviews - EXPANDED for more reviews per movie
       if (omdbData && omdbData.Response === "True") {
-        const baseSentiment = (rating: number, threshold1: number, threshold2: number) => {
+        const baseSentiment = (rating: number, threshold1: number, threshold2: number): "positive" | "negative" | "neutral" => {
           if (rating >= threshold1) return "positive";
           if (rating < threshold2) return "negative";
           return movieRandom() < 0.6 ? "positive" : "neutral";
@@ -942,6 +930,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
                                 <Line type="monotone" dataKey="negative" stroke="#ef4444" strokeWidth={2} />
                               </LineChart>
                             </ResponsiveContainer>
+                            </div>
                           </CardContent>
                         </Card>
                       )}
