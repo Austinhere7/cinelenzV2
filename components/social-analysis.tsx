@@ -316,14 +316,16 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
           const imdbSentiment = baseSentiment(imdbRating, 7, 5);
           
           // Review 1: Overall rating
-          allPosts.push({
+          const imdbReview1 = {
             id: `imdb-${movieId}-1`,
             content: sanitizeContent(`IMDB Rating: ${omdbData.imdbRating}/10 from ${omdbData.imdbVotes || 'many'} votes. ${omdbData.Plot || ''}`),
             platform: "imdb",
             author: "IMDB Users",
             timestamp: omdbData.Released || new Date().toISOString(),
             sentiment: imdbSentiment
-          });
+          };
+          allPosts.push(imdbReview1);
+          console.log(`[IMDB Debug] Added review with platform: "${imdbReview1.platform}"`);
 
           // Review 2: Plot-focused
           if (omdbData.Plot && omdbData.Plot !== "N/A") {
@@ -459,6 +461,8 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             timestamp: omdbData.Released || new Date().toISOString(),
             sentiment: metaSentiment
           });
+          
+          console.log(`[OMDb] Generated IMDB reviews count: ${allPosts.filter(p => p.platform === "imdb").length}`);
         }
         
         console.log(`[OMDb] Added IMDB, RT, and Metacritic synthetic reviews from OMDb data`);
@@ -596,6 +600,11 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
         acc[post.platform] = (acc[post.platform] || 0) + 1;
         return acc;
       }, {} as Record<string, number>);
+      
+      // Debug: Show unique platforms
+      const uniquePlatforms = [...new Set(allPosts.map(p => p.platform))];
+      console.log(`[Platform Debug] Unique platforms found:`, uniquePlatforms);
+      console.log(`[Platform Debug] IMDB reviews:`, allPosts.filter(p => p.platform === "imdb").length);
       console.log(`[Review Summary] Total reviews: ${allPosts.length}`, platformCounts);
       
       if (allPosts.length > 0) {
