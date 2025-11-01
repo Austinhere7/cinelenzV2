@@ -9,7 +9,19 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MessageSquare, TrendingUp, Users, Search, BarChart3, X, ChevronDown, ChevronRight } from "lucide-react"
 import { ReviewPhrases } from "@/components/review-phrases"
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer } from 'recharts'
+import dynamic from 'next/dynamic'
+
+// Lazy load heavy chart components
+const LineChart = dynamic(() => import('recharts').then(mod => ({ default: mod.LineChart })), { ssr: false })
+const Line = dynamic(() => import('recharts').then(mod => ({ default: mod.Line })), { ssr: false })
+const BarChart = dynamic(() => import('recharts').then(mod => ({ default: mod.BarChart })), { ssr: false })
+const Bar = dynamic(() => import('recharts').then(mod => ({ default: mod.Bar })), { ssr: false })
+const XAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.XAxis })), { ssr: false })
+const YAxis = dynamic(() => import('recharts').then(mod => ({ default: mod.YAxis })), { ssr: false })
+const CartesianGrid = dynamic(() => import('recharts').then(mod => ({ default: mod.CartesianGrid })), { ssr: false })
+const RechartsTooltip = dynamic(() => import('recharts').then(mod => ({ default: mod.Tooltip })), { ssr: false })
+const Legend = dynamic(() => import('recharts').then(mod => ({ default: mod.Legend })), { ssr: false })
+const ResponsiveContainer = dynamic(() => import('recharts').then(mod => ({ default: mod.ResponsiveContainer })), { ssr: false })
 
 interface Thread {
   thread_id: string
@@ -163,11 +175,15 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
     setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }))
   }
   
-  // Load analysis data when movieTitle changes
+  // Load analysis data when movieTitle changes (with debouncing)
   useEffect(() => {
     if (!movieTitle) return
     
     let isCancelled = false
+    
+    // Debounce API calls to prevent rapid successive requests
+    const debounceTimer = setTimeout(() => {
+      if (isCancelled) return
     
     // Seeded random function for consistent results per movie
     const seedRandom = (seed: string) => {
@@ -219,37 +235,13 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       const omdbResponse = omdbSet.status === 'fulfilled' ? omdbSet.value : null;
       const ytSearchResponse = ytSearchSet.status === 'fulfilled' ? ytSearchSet.value : null;
 
-      // Log TMDB response
-      if (reviewsResponse) {
-        console.log(`[TMDB] Reviews fetch status: ${reviewsResponse.status} ${reviewsResponse.statusText}`);
-      } else {
-        console.error('[TMDB] Reviews request failed or rejected');
-      }
-
-      // Log OMDb response
-      if (omdbResponse) {
-        console.log(`[OMDb] Fetch status: ${omdbResponse.status} ${omdbResponse.statusText}`);
-      } else {
-        console.error('[OMDb] Request failed or rejected');
-      }
-
-      if (!reviewsResponse || !reviewsResponse.ok) {
-        // TMDB reviews are primary; if unavailable, continue but with empty set
-        console.warn('TMDB reviews unavailable');
-      }
-
-      // Log YouTube search response
-      if (ytSearchResponse) {
-        console.log(`[YouTube Search] Status: ${ytSearchResponse.status} ${ytSearchResponse.statusText}`);
-      } else {
-        console.warn('[YouTube Search] Request failed or rejected');
-      }
+      // Handle API response errors silently in production
 
   const reviewsData = reviewsResponse ? await reviewsResponse.json() : { results: [], total_pages: 1 };
       const omdbData = omdbResponse && omdbResponse.ok ? await omdbResponse.json() : null;
       const ytSearchData = ytSearchResponse && ytSearchResponse.ok ? await ytSearchResponse.json() : null;
       
-      console.log(`[Data Check] TMDB results: ${reviewsData.results?.length || 0}, OMDb valid: ${omdbData?.Response === "True"}, YouTube items: ${ytSearchData?.items?.length || 0}`);
+
       
       const allPosts: Post[] = [];
       
@@ -273,7 +265,6 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       }
 
       if (tmdbResults.length > 0) {
-        console.log(`[TMDB] Found ${tmdbResults.length} TMDB reviews for "${movieTitle}"`);
         const tmdbPosts = tmdbResults.map((review: any, index: number) => {
           let sentiment: "positive" | "negative" | "neutral" = "neutral";
           const rating = review.author_details?.rating;
@@ -295,7 +286,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             sentiment
           };
         }).filter((p: Post) => !isBannedContent(p.content));
-        console.log(`[TMDB] After filtering: ${tmdbPosts.length} TMDB reviews added (${tmdbResults.length - tmdbPosts.length} filtered out)`);
+
         allPosts.push(...tmdbPosts);
       } else {
         console.warn(`[TMDB] No TMDB reviews found for "${movieTitle}"`);
@@ -303,7 +294,6 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       
       // Add OMDb ratings as synthetic reviews - EXPANDED for more reviews per movie
       if (omdbData && omdbData.Response === "True") {
-        console.log(`[OMDb] Processing OMDb data for "${movieTitle}"`);
         const baseSentiment = (rating: number, threshold1: number, threshold2: number) => {
           if (rating >= threshold1) return "positive";
           if (rating < threshold2) return "negative";
@@ -325,8 +315,6 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             sentiment: imdbSentiment
           };
           allPosts.push(imdbReview1);
-          console.log(`[IMDB Debug] Added review with platform: "${imdbReview1.platform}"`);
-
           // Review 2: Plot-focused
           if (omdbData.Plot && omdbData.Plot !== "N/A") {
             allPosts.push({
@@ -462,10 +450,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
             sentiment: metaSentiment
           });
           
-          console.log(`[OMDb] Generated IMDB reviews count: ${allPosts.filter(p => p.platform === "imdb").length}`);
         }
-        
-        console.log(`[OMDb] Added IMDB, RT, and Metacritic synthetic reviews from OMDb data`);
       } else {
         console.warn(`[OMDb] No valid OMDb data for "${movieTitle}"`);
       }
@@ -477,13 +462,12 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       if (ytSearchData && ytSearchData.items && ytSearchData.items.length > 0) {
         console.log(`[YouTube] Found ${ytSearchData.items.length} videos for "${movieTitle}"`);
         // Fetch comments from 5 videos (reduced from 10), 5 pages each (reduced from 10)
-        const videoIds = ytSearchData.items.slice(0, 5).map((item: any) => item.id?.videoId).filter(Boolean); // Reduced to 5 videos
-        console.log(`[YouTube] Processing ${videoIds.length} video IDs for comments`);
+        const videoIds = ytSearchData.items.slice(0, 3).map((item: any) => item.id?.videoId).filter(Boolean);
         
         for (const videoId of videoIds) {
           try {
             const ytCommentsRes = await fetch(`${YOUTUBE_BASE_URL}/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&order=relevance&textFormat=plainText&key=${getYouTubeKey()}`);
-            console.log(`[YouTube] Comments fetch for ${videoId}: ${ytCommentsRes.status} ${ytCommentsRes.statusText}`);
+
             if (ytCommentsRes.ok) {
               const ytComments = await ytCommentsRes.json();
               let ytItems = Array.isArray(ytComments.items) ? [...ytComments.items] : []
@@ -491,7 +475,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
               // Fetch additional pages (up to 4 more pages per video = 5 pages total = 500 comments per video, reduced from 1000)
               let nextPageToken = ytComments.nextPageToken;
               let pageCount = 1;
-              while (nextPageToken && pageCount < 5) { // Reduced to 5 pages (was 10)
+              while (nextPageToken && pageCount < 3) { // Reduced to 3 pages for better performance
                 try {
                   const moreRes = await fetch(`${YOUTUBE_BASE_URL}/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&pageToken=${nextPageToken}&order=relevance&textFormat=plainText&key=${getYouTubeKey()}`)
                   if (moreRes.ok) {
@@ -538,7 +522,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
                     sentiment
                   }
                 }).filter((p: Post) => !isBannedContent(p.content));
-                console.log(`[YouTube] Added ${ytPosts.length} valid comments from video ${videoId}`);
+
                 allPosts.push(...ytPosts);
               }
             } else {
@@ -601,11 +585,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
         return acc;
       }, {} as Record<string, number>);
       
-      // Debug: Show unique platforms
-      const uniquePlatforms = [...new Set(allPosts.map(p => p.platform))];
-      console.log(`[Platform Debug] Unique platforms found:`, uniquePlatforms);
-      console.log(`[Platform Debug] IMDB reviews:`, allPosts.filter(p => p.platform === "imdb").length);
-      console.log(`[Review Summary] Total reviews: ${allPosts.length}`, platformCounts);
+
       
       if (allPosts.length > 0) {
         // Calculate overall sentiment
@@ -649,10 +629,14 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
     }
   }
 
-  fetchAnalysis()
+      fetchAnalysis()
+    }, 500) // 500ms debounce delay
 
-  return () => { isCancelled = true }
-}, [movieTitle]);
+    return () => { 
+      isCancelled = true
+      clearTimeout(debounceTimer)
+    }
+  }, [movieTitle]);
 
   const handleRefresh = () => {
     setThreads([]);
@@ -695,63 +679,76 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
 
   const isAllowed = (p: string) => includeByCategory(p) && (platforms[p] ?? true)
 
-  // Filter posts by date range
-  const filterByDate = (post: Post) => {
-    if (dateFilter === 'all') return true
-    const postDate = new Date(post.timestamp)
-    const now = new Date()
-    const daysDiff = Math.floor((now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24))
-    
-    switch (dateFilter) {
-      case 'week': return daysDiff <= 7
-      case 'month': return daysDiff <= 30
-      case 'year': return daysDiff <= 365
-      default: return true
+  // Memoized date filtering function
+  const filterByDate = useMemo(() => {
+    return (post: Post) => {
+      if (dateFilter === 'all') return true
+      const postDate = new Date(post.timestamp)
+      const now = new Date()
+      const daysDiff = Math.floor((now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24))
+      
+      switch (dateFilter) {
+        case 'week': return daysDiff <= 7
+        case 'month': return daysDiff <= 30
+        case 'year': return daysDiff <= 365
+        default: return true
+      }
     }
-  }
+  }, [dateFilter])
 
-  // Filter posts by keyword
-  const filterByKeyword = (post: Post) => {
-    if (!searchKeyword.trim()) return true
-    return post.content.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-           post.author.toLowerCase().includes(searchKeyword.toLowerCase())
-  }
-
-  // Sort posts
-  const sortPosts = (posts: Post[]) => {
-    const sorted = [...posts]
+  // Memoized filtering and sorting for better performance
+  const filteredPosts = useMemo(() => {
+    const allPosts = threads.flatMap(thread => thread.posts)
+    
+    // Apply all filters
+    let filtered = allPosts.filter(post => {
+      // Platform filter
+      if (!isAllowed(post.platform)) return false
+      
+      // Date filter
+      if (!filterByDate(post)) return false
+      
+      // Keyword filter
+      if (searchKeyword.trim()) {
+        const keyword = searchKeyword.toLowerCase()
+        if (!post.content.toLowerCase().includes(keyword) && 
+            !post.author.toLowerCase().includes(keyword)) {
+          return false
+        }
+      }
+      
+      return true
+    })
+    
+    // Apply sorting
     switch (sortBy) {
       case 'date':
-        return sorted.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+        filtered.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+        break
       case 'rating':
-        // Estimate rating from sentiment
-        return sorted.sort((a, b) => {
+        filtered.sort((a, b) => {
           const aScore = a.sentiment === 'positive' ? 3 : a.sentiment === 'neutral' ? 2 : 1
           const bScore = b.sentiment === 'positive' ? 3 : b.sentiment === 'neutral' ? 2 : 1
           return bScore - aScore
         })
+        break
       case 'popularity':
-        // For now, use platform popularity (TMDB/YouTube > others)
-        return sorted.sort((a, b) => {
+        filtered.sort((a, b) => {
           const aScore = a.platform === 'youtube' || a.platform === 'tmdb' ? 2 : 1
           const bScore = b.platform === 'youtube' || b.platform === 'tmdb' ? 2 : 1
           return bScore - aScore
         })
-      default:
-        return sorted
+        break
     }
-  }
+    
+    return filtered
+  }, [threads, platforms, category, dateFilter, searchKeyword, sortBy])
 
-  // Apply all filters
-  const getFilteredPosts = (posts: Post[]) => {
-    return sortPosts(posts.filter(p => isAllowed(p.platform) && filterByDate(p) && filterByKeyword(p)))
-  }
-
-  // Calculate sentiment over time for charts
-  const getSentimentTimeline = (posts: Post[]) => {
+  // Memoized sentiment timeline calculation
+  const sentimentTimeline = useMemo(() => {
     const timeline: Record<string, { positive: number; neutral: number; negative: number }> = {}
     
-    posts.forEach(post => {
+    filteredPosts.forEach(post => {
       const date = new Date(post.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
       if (!timeline[date]) {
         timeline[date] = { positive: 0, neutral: 0, negative: 0 }
@@ -765,7 +762,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       .sort((a, b) => new Date(a[0]).getTime() - new Date(b[0]).getTime())
       .slice(-14) // Last 14 data points
       .map(([date, counts]) => ({ date, ...counts }))
-  }
+  }, [filteredPosts])
 
   return (
     <div className="space-y-6">
@@ -889,9 +886,11 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       {threads.length > 0 && (
         <div className="grid gap-6">
           {threads.map((thread) => {
-            // Apply filters and sorting to posts
-            const filteredPosts = getFilteredPosts(thread.posts)
-            const timelineData = getSentimentTimeline(filteredPosts)
+            // Use memoized filtered posts and timeline data for better performance
+            const threadFilteredPosts = filteredPosts.filter(post => 
+              thread.posts.some(threadPost => threadPost.id === post.id)
+            )
+            const timelineData = sentimentTimeline
             
             return (
             <Card key={thread.thread_id} className="hover:shadow-lg transition-shadow">
@@ -902,7 +901,7 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
                     <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
-                        {filteredPosts.length} reviews (filtered from {thread.post_count})
+                        {threadFilteredPosts.length} reviews (filtered from {thread.post_count})
                       </div>
                       <div className="flex items-center gap-1">
                         <TrendingUp className="w-4 h-4" />
@@ -927,8 +926,9 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
                             <CardTitle className="text-sm">Sentiment Over Time</CardTitle>
                           </CardHeader>
                           <CardContent>
-                            <ResponsiveContainer width="100%" height={200}>
-                              <LineChart data={timelineData}>
+                            <div className="w-full h-[200px]">
+                              <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={timelineData}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                                 <XAxis dataKey="date" tick={{ fontSize: 10 }} stroke="#9ca3af" />
                                 <YAxis tick={{ fontSize: 10 }} stroke="#9ca3af" />
