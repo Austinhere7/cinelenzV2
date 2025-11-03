@@ -777,72 +777,155 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       </div>
 
       {/* Sticky subnav filters */}
-      <div className="sticky top-16 z-20 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-md border p-3 space-y-3">
+      <div className="sticky top-16 z-20 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 rounded-lg border p-4 space-y-4 shadow-sm">
         {/* Category tabs */}
-        <div className="flex items-center gap-2 text-sm flex-wrap">
-          <div className={`px-3 py-1 rounded-md cursor-pointer ${category==='all'?'bg-primary text-primary-foreground':'hover:bg-muted'}`} onClick={() => setCategory('all')}>All</div>
-          <div className={`px-3 py-1 rounded-md cursor-pointer ${category==='critics'?'bg-primary text-primary-foreground':'hover:bg-muted'}`} onClick={() => setCategory('critics')}>Critics</div>
-          <div className={`px-3 py-1 rounded-md cursor-pointer ${category==='audience'?'bg-primary text-primary-foreground':'hover:bg-muted'}`} onClick={() => setCategory('audience')}>Audience</div>
-          <div className={`px-3 py-1 rounded-md cursor-pointer ${category==='youtube'?'bg-primary text-primary-foreground':'hover:bg-muted'}`} onClick={() => setCategory('youtube')}>YouTube</div>
+        <div className="space-y-2">
+          <h4 className="text-sm font-medium text-foreground">Review Sources</h4>
+          <div className="flex items-center gap-2 text-sm flex-wrap" role="tablist" aria-label="Review source categories">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  className={`px-3 py-2 rounded-md transition-colors focus:ring-2 focus:ring-primary focus:outline-none ${category==='all'?'bg-primary text-primary-foreground':'hover:bg-muted focus:bg-muted'}`} 
+                  onClick={() => setCategory('all')}
+                  role="tab"
+                  aria-selected={category === 'all'}
+                  aria-controls="reviews-content"
+                >
+                  All Sources
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>Show reviews from all platforms (TMDB, IMDB, RT, Metacritic, YouTube)</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  className={`px-3 py-2 rounded-md transition-colors focus:ring-2 focus:ring-primary focus:outline-none ${category==='critics'?'bg-primary text-primary-foreground':'hover:bg-muted focus:bg-muted'}`} 
+                  onClick={() => setCategory('critics')}
+                  role="tab"
+                  aria-selected={category === 'critics'}
+                  aria-controls="reviews-content"
+                >
+                  🎭 Critics
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>Professional critics from Guardian, Metacritic, Rotten Tomatoes</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  className={`px-3 py-2 rounded-md transition-colors focus:ring-2 focus:ring-primary focus:outline-none ${category==='audience'?'bg-primary text-primary-foreground':'hover:bg-muted focus:bg-muted'}`} 
+                  onClick={() => setCategory('audience')}
+                  role="tab"
+                  aria-selected={category === 'audience'}
+                  aria-controls="reviews-content"
+                >
+                  👥 Audience
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>General audience reviews from TMDB, IMDB</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  className={`px-3 py-2 rounded-md transition-colors focus:ring-2 focus:ring-primary focus:outline-none ${category==='youtube'?'bg-primary text-primary-foreground':'hover:bg-muted focus:bg-muted'}`} 
+                  onClick={() => setCategory('youtube')}
+                  role="tab"
+                  aria-selected={category === 'youtube'}
+                  aria-controls="reviews-content"
+                >
+                  ▶️ YouTube
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>Comments and reactions from YouTube videos</TooltipContent>
+            </Tooltip>
+          </div>
         </div>
 
         {/* Filtering and sorting controls */}
-        <div className="flex items-center gap-3 flex-wrap">
-          {/* Search */}
-          <div className="relative flex-1 min-w-[200px]">
-            <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search reviews..."
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              className="pl-8 h-8 text-sm"
-            />
-            {searchKeyword && (
-              <button onClick={() => setSearchKeyword('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
-                <X className="h-3 w-3" />
-              </button>
-            )}
-          </div>
+        <div className="space-y-3">
+          <h4 className="text-sm font-medium text-foreground">Filter & Sort</h4>
+          <div className="flex items-center gap-3 flex-wrap">
+            {/* Search */}
+            <div className="relative flex-1 min-w-[200px]">
+              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search reviews, authors, keywords..."
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+                className="pl-8 h-9 text-sm focus:ring-2 focus:ring-primary"
+                aria-label="Search through reviews and comments"
+              />
+              {searchKeyword && (
+                <button 
+                  onClick={() => setSearchKeyword('')} 
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                  aria-label="Clear search"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              )}
+            </div>
 
-          {/* Sort by */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Sort:</span>
-            <select 
-              value={sortBy} 
-              onChange={(e) => setSortBy(e.target.value as 'date' | 'rating' | 'popularity')}
-              className="h-8 px-2 text-xs rounded-md border bg-background"
-            >
-              <option value="date">Date</option>
-              <option value="rating">Rating</option>
-              <option value="popularity">Popularity</option>
-            </select>
-          </div>
+            {/* Sort by */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="sort-select" className="text-xs text-muted-foreground">Sort:</label>
+                  <select 
+                    id="sort-select"
+                    value={sortBy} 
+                    onChange={(e) => setSortBy(e.target.value as 'date' | 'rating' | 'popularity')}
+                    className="h-9 px-3 text-xs rounded-md border bg-background focus:ring-2 focus:ring-primary focus:outline-none"
+                    aria-label="Sort reviews by"
+                  >
+                    <option value="date">Newest First</option>
+                    <option value="rating">Highest Rating</option>
+                    <option value="popularity">Most Popular</option>
+                  </select>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>Change how reviews are ordered in the lists</TooltipContent>
+            </Tooltip>
 
-          {/* Date filter */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Period:</span>
-            <select 
-              value={dateFilter} 
-              onChange={(e) => setDateFilter(e.target.value as 'all' | 'week' | 'month' | 'year')}
-              className="h-8 px-2 text-xs rounded-md border bg-background"
-            >
-              <option value="all">All Time</option>
-              <option value="week">Last Week</option>
-              <option value="month">Last Month</option>
-              <option value="year">Last Year</option>
-            </select>
-          </div>
+            {/* Date filter */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="date-select" className="text-xs text-muted-foreground">Period:</label>
+                  <select 
+                    id="date-select"
+                    value={dateFilter} 
+                    onChange={(e) => setDateFilter(e.target.value as 'all' | 'week' | 'month' | 'year')}
+                    className="h-9 px-3 text-xs rounded-md border bg-background focus:ring-2 focus:ring-primary focus:outline-none"
+                    aria-label="Filter reviews by time period"
+                  >
+                    <option value="all">All Time</option>
+                    <option value="week">Last 7 Days</option>
+                    <option value="month">Last 30 Days</option>
+                    <option value="year">Last Year</option>
+                  </select>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>Filter reviews by how recent they are</TooltipContent>
+            </Tooltip>
 
-          {/* Toggle charts */}
-          <Button
-            variant={showCharts ? "default" : "outline"}
-            size="sm"
-            onClick={() => setShowCharts(!showCharts)}
-            className="h-8 gap-1"
-          >
-            <BarChart3 className="h-3 w-3" />
-            {showCharts ? 'Hide' : 'Show'} Charts
-          </Button>
+            {/* Toggle charts */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant={showCharts ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setShowCharts(!showCharts)}
+                  className="h-9 gap-2"
+                  aria-pressed={showCharts}
+                >
+                  <BarChart3 className="h-4 w-4" />
+                  {showCharts ? 'Hide' : 'Show'} Charts
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Toggle sentiment timeline and distribution charts</TooltipContent>
+            </Tooltip>
+          </div>
         </div>
       </div>
       
@@ -853,21 +936,22 @@ export function SocialAnalysis({ movieTitle }: SocialAnalysisProps) {
       )}
       
       {loading && (
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6" role="status" aria-label="Loading social media analysis...">
           {[...Array(5)].map((_, colIdx) => (
-            <div key={`sk-col-${colIdx}`} className="border rounded-lg p-3 bg-gray-800">
-              <Skeleton className="h-6 w-24 mb-3" />
-              <div className="space-y-3">
-                {[...Array(5)].map((__, i) => (
-                  <div key={`sk-item-${colIdx}-${i}`} className="space-y-2">
+            <div key={`sk-col-${colIdx}`} className="border rounded-lg p-4 bg-card shadow-sm">
+              <Skeleton className="h-6 w-24 mb-4" />
+              <div className="space-y-4">
+                {[...Array(3)].map((__, i) => (
+                  <div key={`sk-item-${colIdx}-${i}`} className="space-y-3 border-l-2 border-muted pl-3">
                     <Skeleton className="h-3 w-20" />
-                    <Skeleton className="h-14 w-full" />
+                    <Skeleton className="h-16 w-full" />
                     <Skeleton className="h-3 w-16" />
                   </div>
                 ))}
               </div>
             </div>
           ))}
+          <div className="sr-only">Loading movie reviews and social media analysis. Please wait...</div>
         </div>
       )}
 

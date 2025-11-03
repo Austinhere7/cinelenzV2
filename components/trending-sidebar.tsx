@@ -50,9 +50,12 @@ export function TrendingSidebar({ initialLanguage = "en" }: { initialLanguage?: 
   )
 
   return (
-    <div className="rounded-lg border border-border bg-card p-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-base font-semibold tracking-tight">Trending now</h3>
+    <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h3 className="text-lg font-semibold tracking-tight mb-1">🔥 Trending Movies</h3>
+          <p className="text-xs text-muted-foreground">Popular films based on social buzz</p>
+        </div>
         <div className="inline-flex items-center gap-2">
           <label htmlFor="lang" className="text-xs text-muted-foreground">
             Language
@@ -61,21 +64,39 @@ export function TrendingSidebar({ initialLanguage = "en" }: { initialLanguage?: 
             id="lang"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="rounded-md border bg-background px-2 py-1 text-xs text-foreground"
+            className="rounded-md border bg-background px-2 py-1 text-xs text-foreground focus:ring-2 focus:ring-primary focus:border-primary"
             aria-label="Filter trending by language"
           >
-            <option value="en">EN</option>
-            <option value="hi">HI</option>
-            <option value="ta">TA</option>
-            <option value="te">TE</option>
-            <option value="es">ES</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="es">Spanish</option>
           </select>
         </div>
       </div>
 
-      <div className="mt-4 space-y-3">
-        {isLoading && <div className="text-xs text-muted-foreground">Loading trending…</div>}
-        {error && <div className="text-xs text-destructive">Couldn&apos;t load trending.</div>}
+      <div className="space-y-3">
+        {isLoading && (
+          <div className="space-y-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="flex items-center gap-3 rounded-md border border-border bg-background p-3 animate-pulse">
+                <div className="h-14 w-10 rounded bg-muted" />
+                <div className="min-w-0 flex-1 space-y-2">
+                  <div className="h-4 w-3/4 rounded bg-muted" />
+                  <div className="h-2 w-full rounded bg-muted" />
+                </div>
+                <div className="h-7 w-7 rounded bg-muted" />
+              </div>
+            ))}
+          </div>
+        )}
+        {error && (
+          <div className="text-center py-8">
+            <div className="text-sm text-destructive mb-2">⚠️ Unable to load trending movies</div>
+            <div className="text-xs text-muted-foreground">Check your connection and try again</div>
+          </div>
+        )}
         {data?.items?.length
           ? data.items.map((item) => {
               const score = Math.max(0, Math.min(100, Math.round(item.score || 0)))
@@ -95,23 +116,33 @@ export function TrendingSidebar({ initialLanguage = "en" }: { initialLanguage?: 
                     className="h-14 w-10 rounded object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-medium">{item.title}</div>
-                    <div className="mt-1 h-1.5 w-full rounded bg-muted">
-                      <div
-                        className="h-1.5 rounded bg-primary transition-[width] duration-500"
-                        style={{ width: `${score}%` }}
-                        aria-label={`Trending strength ${score}%`}
-                      />
+                    <div className="truncate text-sm font-medium text-foreground">{item.title}</div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <div className="flex-1 h-2 rounded-full bg-muted">
+                        <div
+                          className="h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 transition-[width] duration-500"
+                          style={{ width: `${score}%` }}
+                          aria-label={`Social buzz strength: ${score}%`}
+                        />
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs tabular-nums font-medium text-muted-foreground">{score}%</span>
+                        <span className="text-xs text-muted-foreground">buzz</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="shrink-0 text-xs tabular-nums text-muted-foreground">{score}%</div>
+                  <div className="flex items-center gap-2 ml-3">
                     <CompareButton movie={{ id: item.id, title: item.title }} />
                   </div>
                 </div>
               )
             })
-          : !isLoading && <div className="text-xs text-muted-foreground">No trending data.</div>}
+          : !isLoading && !error && (
+              <div className="text-center py-8">
+                <div className="text-sm text-muted-foreground mb-2">📭 No trending movies found</div>
+                <div className="text-xs text-muted-foreground">Try changing the language filter</div>
+              </div>
+            )}
       </div>
     </div>
   )

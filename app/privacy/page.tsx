@@ -23,81 +23,117 @@ export default function PrivacyPolicy() {
             <p className="text-muted-foreground text-lg leading-relaxed">
               Last updated: {new Date().toLocaleDateString()}
             </p>
+            
+            <div className="bg-card border border-border rounded-lg p-6">
+              <p className="text-foreground leading-relaxed">
+                CineLenz is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our movie discovery and social sentiment analysis platform.
+              </p>
+            </div>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-primary font-display">1. Information We Collect</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Neural Link collects information to provide better services to our users. We collect information in the
-                following ways:
+                CineLenz collects information to provide better movie discovery and analysis services:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>Information you give us directly (account registration, contact forms)</li>
-                <li>Neural interface data collected through our brain-computer interface technology</li>
-                <li>Usage data and analytics from our applications and services</li>
-                <li>Device information and technical specifications</li>
+                <li><strong>Search and Viewing Data:</strong> Movies you search for, reviews you read, and pages you visit</li>
+                <li><strong>Usage Analytics:</strong> How you interact with our features and services</li>
+                <li><strong>Device Information:</strong> Browser type, device type, IP address, and operating system</li>
+                <li><strong>Cookies:</strong> We use cookies to improve your experience and remember your preferences</li>
+                <li><strong>No Personal Accounts:</strong> CineLenz currently does not require account registration or collect personally identifiable information</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary font-display">2. Neural Data Protection</h2>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">2. Third-Party Data Sources</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Your neural data is the most sensitive information we handle. We implement the highest security
-                standards:
+                We aggregate movie information and social media sentiment from various sources:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>End-to-end encryption for all neural signal transmission</li>
-                <li>Local processing whenever possible to minimize data transmission</li>
-                <li>Strict access controls and audit trails for all neural data access</li>
-                <li>Regular security assessments and penetration testing</li>
+                <li><strong>TMDB (The Movie Database):</strong> Movie metadata, images, and user ratings</li>
+                <li><strong>OMDb:</strong> Additional movie information and ratings from IMDB, Rotten Tomatoes, Metacritic</li>
+                <li><strong>YouTube:</strong> Public comments on movie-related videos (analyzed anonymously)</li>
+                <li><strong>The Guardian:</strong> Professional film critic reviews and articles</li>
               </ul>
+              <p className="text-muted-foreground leading-relaxed mt-4">
+                All data collected from these sources is publicly available. We do not access private accounts or non-public information.
+              </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-primary font-display">3. How We Use Information</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">We use the information we collect to:</p>
+              <p className="text-muted-foreground leading-relaxed mb-4">We use collected information to:</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>Provide and improve our neural interface services</li>
-                <li>Personalize your experience and optimize neural signal processing</li>
-                <li>Conduct research to advance brain-computer interface technology</li>
-                <li>Ensure safety and security of our systems</li>
-                <li>Comply with legal obligations and regulatory requirements</li>
+                <li>Provide accurate movie recommendations and sentiment analysis</li>
+                <li>Improve our algorithms and user experience</li>
+                <li>Analyze trends in movie popularity and audience reactions</li>
+                <li>Debug technical issues and optimize performance</li>
+                <li>Understand which features are most valuable to users</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary font-display">4. Data Sharing and Disclosure</h2>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">4. Data Storage and Security</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We do not sell, trade, or otherwise transfer your personal information to third parties without your
-                consent, except:
+                We implement industry-standard security measures:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>With your explicit consent for research participation</li>
-                <li>To comply with legal obligations or court orders</li>
-                <li>To protect the rights, property, or safety of Neural Link or others</li>
-                <li>With service providers under strict confidentiality agreements</li>
+                <li>Secure HTTPS connections for all data transmission</li>
+                <li>Regular security audits and vulnerability assessments</li>
+                <li>Limited data retention - we only keep analytics data for 90 days</li>
+                <li>No storage of sensitive personal information</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary font-display">5. Your Rights and Choices</h2>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">5. Cookies and Tracking</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                CineLenz uses cookies to enhance your experience:
+              </p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
+                <li><strong>Essential Cookies:</strong> Required for basic site functionality</li>
+                <li><strong>Analytics Cookies:</strong> Help us understand how you use the site</li>
+                <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mt-4">
+                You can control cookies through your browser settings. See our <Link href="/cookies" className="text-primary hover:underline">Cookie Policy</Link> for details.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">6. Your Rights</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">You have the right to:</p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
-                <li>Access, update, or delete your personal information</li>
-                <li>Opt-out of data collection for research purposes</li>
-                <li>Request data portability for your neural interface data</li>
-                <li>Withdraw consent for data processing at any time</li>
-                <li>File complaints with relevant data protection authorities</li>
+                <li>Clear your browser cookies and local storage at any time</li>
+                <li>Opt-out of analytics tracking</li>
+                <li>Request information about data we may have collected</li>
+                <li>Contact us with privacy concerns or questions</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-primary font-display">6. Contact Us</h2>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">7. Children's Privacy</h2>
               <p className="text-muted-foreground leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at:
+                CineLenz is not directed to children under 13. We do not knowingly collect information from children under 13 years of age.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">8. Changes to This Policy</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-primary font-display">9. Contact Us</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                If you have questions about this Privacy Policy or our privacy practices:
                 <br />
-                Email: privacy@neurallink.com
                 <br />
-                Address: Neural Link Corporation, Privacy Office, [Address]
+                <strong>Email:</strong> privacy@cinelenz.com
+                <br />
+                <strong>Website:</strong> <Link href="/" className="text-primary hover:underline">www.cinelenz.com</Link>
               </p>
             </section>
           </div>
