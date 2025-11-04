@@ -87,7 +87,7 @@
 }
 
 .dark {
-  --background: oklch(0.05 0 0); /* Pure black background */
+  --background: oklch(0.16 0.04 255); /* Deep navy background */
   --foreground: oklch(0.985 0 0); /* Pure white text */
   --card: oklch(0.08 0 0); /* Very dark gray cards */
   --card-foreground: oklch(0.985 0 0);

@@ -12,13 +12,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" aria-label="CineLenz home" className="inline-flex items-center group gap-0">
+            <a href="/" aria-label="CineLenz home" className="inline-flex items-center group -gap-4">
               <img 
                 src="/new-logo.png" 
                 alt="CineLenz Logo" 
-                width="80"
-                height="80"
-                className="h-16 w-16 md:h-20 md:w-20 object-contain -mr-4"
+                className="h-30 w-auto md:h-36 object-contain -mr-9"
                 style={{ display: 'block' }}
                 onError={(e) => {
                   console.error('Logo failed to load');
