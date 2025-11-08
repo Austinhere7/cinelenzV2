@@ -14,7 +14,7 @@ export function Navbar() {
           <div className="flex-shrink-0">
             <a href="/" aria-label="CineLenz home" className="inline-flex items-center group -gap-4">
               <img 
-                src="/new-logo.png" 
+                src="/new-logo.png?v=2" 
                 alt="CineLenz Logo" 
                 className="h-30 w-auto md:h-36 object-contain -mr-9"
                 style={{ display: 'block' }}
