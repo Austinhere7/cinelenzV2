@@ -2,12 +2,15 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  const isLandingPage = pathname === "/"
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className={`fixed top-0 left-0 right-0 z-[9999] ${isLandingPage ? 'bg-black/95' : 'bg-background/95'} backdrop-blur-md border-b border-border shadow-sm`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -67,7 +70,7 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-1 pb-2 space-y-0.5 bg-background/98 border-t border-border">
+            <div className={`px-2 pt-1 pb-2 space-y-0.5 ${isLandingPage ? 'bg-black/98' : 'bg-background/98'} border-t border-border`}>
               <a
                 href="/#how-it-works"
                 className="block px-3 py-1.5 font-sans text-foreground hover:text-primary transition-colors duration-200"

@@ -266,15 +266,15 @@ export const Html = () => {
   }, [visibleWords, titleWords.length])
 
   return (
-    <div className="h-svh bg-background relative w-full overflow-hidden">
+    <div className="h-svh bg-black relative w-full overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-50">
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/80 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-        <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black/80 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent"></div>
       </div>
 
-      <div className="absolute inset-0 bg-background/20 z-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
 
       <div className="h-svh items-center w-full absolute z-60 pointer-events-none px-10 flex justify-center flex-col">
         <div className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-sans tracking-tight">
@@ -317,7 +317,7 @@ export const Html = () => {
       </div>
 
       <Canvas
-        className="absolute inset-0 w-full h-full bg-background"
+        className="absolute inset-0 w-full h-full bg-black"
         camera={{
           position: [0, 0, 1],
           fov: 75,

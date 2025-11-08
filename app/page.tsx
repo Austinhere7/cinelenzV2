@@ -31,7 +31,7 @@ export default function HomePage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "rgba(20,20,20,0.85)",
+            background: "rgb(0, 0, 0)",
           }}
         >
           <img
@@ -55,7 +55,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden bg-black">
       {/* make main relative and hide overflow for ambient effects */}
       <AmbientBG /> {/* blended red ambient background behind all content */}
       {/* ... existing Hero ... */}
