@@ -64,8 +64,7 @@ export default function HomePage() {
       <section className="relative z-10 flex justify-center px-4 py-10">
         <Web3Ad
           publisherWallet="0x4dE66947Bd526A782b4544EF6c186Bbe5755AD86"
-          type="square"
-          category="defi"
+          type="banner"
         />
       </section>
       <FeaturesSection />

@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import type { Metadata, Viewport } from "next"
 import { Sora, Geist } from "next/font/google"
 import "./globals.css"
@@ -63,10 +64,16 @@ export default function RootLayout({
     <html lang="en" className={`${sora.variable} ${geist.variable} antialiased dark`}>
       <body>
         <WatchlistProvider>
-          <NavigationLoader />
-          <Navbar />
+          <Suspense fallback={null}>
+            <NavigationLoader />
+          </Suspense>
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
           {children}
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </WatchlistProvider>
       </body>
     </html>
