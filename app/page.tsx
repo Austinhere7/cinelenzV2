@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { CTASection } from "@/components/cta-section"
 import Hero3D from "@/components/hero-3d" // Declare the Hero3D variable
 import AmbientBG from "@/components/ambient-bg" // add AmbientBG import for red blended background
+import { Web3Ad } from "web3ads-react"
 
 import React, { useEffect, useState } from "react"
 
@@ -60,6 +61,13 @@ export default function HomePage() {
       <AmbientBG /> {/* blended red ambient background behind all content */}
       {/* ... existing Hero ... */}
       <Hero3D />
+      <section className="relative z-10 flex justify-center px-4 py-10">
+        <Web3Ad
+          publisherWallet="0x4dE66947Bd526A782b4544EF6c186Bbe5755AD86"
+          type="square"
+          category="defi"
+        />
+      </section>
       <FeaturesSection />
       <section id="how-it-works">
         <TechnologySection />
